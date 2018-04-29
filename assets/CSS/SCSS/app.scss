@@ -1,1 +1,18 @@
+$width-sidebar: $width-xs;
 
+/*=== APP ===*/
+
+body {
+	font-size: $font-size-base;
+	line-height: $vertical-rhythm; //1.47059;
+	font-weight: $font-weight-normal;
+	letter-spacing: -0.022em;
+	font-family: $font-default;
+}
+#app {
+	> [role='main'] {
+		&.drawer-open {
+			margin-left: $width-xs;
+		}
+	}
+}

@@ -43,18 +43,16 @@
 	</layout-default>
 </template>
 <script>
-import LayoutDefault from '/layouts/Default'
 import Wordpress from '/components/Wordpress'
 
 export default {
 	components: {
-		LayoutDefault,
 		Wordpress
 	},
 	data() {
 		return {
-			title: 'Muse UI',
-			subtitle: 'Vue.js UI Library'
+			title: 'Overview',
+			subtitle: 'Wordpress Tools'
 		}
 	}
 }

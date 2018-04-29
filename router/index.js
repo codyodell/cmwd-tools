@@ -1,20 +1,41 @@
-import Vue from "vue"
-import Router from "vue-router"
+import Vue from 'vue'
+import Router from 'vue-router'
 
 Vue.use(Router)
 
 export default new Router({
-	mode: "history",
+	mode: 'history',
 	routes: [
 		{
-			path: "/",
-			name: "Tools",
-			component: () => import("../pages/Tools.vue")
+			path: '/',
+			name: 'Home',
+			redirect: '/overview'
 		},
 		{
-			path: "/muse-ui",
-			name: "Muse UI Kitchen Sink",
-			component: () => import("../pages/MuseUI.vue")
+			path: '/overview',
+			name: 'Overview',
+			component: () => import('../pages/Overview.vue')
+		},
+		{
+			path: '/api',
+			name: 'API',
+			component: () => import('../pages/Api.vue'),
+			children: [
+				{
+					path: '/api/endpoints',
+					name: 'Endpoints'
+				}
+			]
+		},
+		{
+			path: '/muse-ui',
+			name: 'Muse UI',
+			component: () => import('../pages/MuseUI.vue')
+		},
+		{
+			path: '/*',
+			name: 'Error [404]',
+			component: () => import('../layouts/error.vue')
 		}
 	]
 })
