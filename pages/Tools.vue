@@ -1,5 +1,9 @@
 <template>
-	<div data-slug="tools" role="main">
+	<div 
+		data-slug="tools"
+		class="drawer-open"
+		role="main"
+	>
     <mu-appbar>
       <mu-icon-button 
 				slot="left"
@@ -18,45 +22,107 @@
 				</svg>
 			</mu-flat-button>
     </mu-appbar>
-    <mu-drawer :open="open" :docked="docked" @close="toggle()">
-      <mu-list @itemClick="docked ? '' : toggle()">
-					<mu-list-item title="Switch">
-     		   <mu-switch />
+    <mu-drawer 
+			:open="open" 
+			@close="toggle()"
+		>
+			<mu-list
+				@itemClick="docked ? '' : toggle()"
+			>
+					<mu-list-item title="Tools">
+						<mu-icon slot="left" value="home" />
+						<mu-icon-button slot="right">
+							<mu-icon value="clear" />
+						</mu-icon-button>
+						<mu-paper class="demo-menu">
+							<mu-list desktop>
+								<mu-list-item title="Back"/>
+								<mu-list-item disabled title="Forward"/>
+								<mu-divider />
+								<mu-list-item disabled title="Recently closed"/>
+								<mu-list-item disabled title="Google"/>
+								<mu-list-item title="YouTube"/>
+							</mu-list>
+						</mu-paper>
 					</mu-list-item>
-					<mu-list-item title="Inbox">
-						<mu-icon slot="left" value="inbox"/>
+					<mu-list-item title="Explore">
+						<mu-icon slot="left" value="explore"/>
 					</mu-list-item>
-					<mu-list-item title="Starred">
-						<mu-icon slot="left" value="grade"/>
+					<mu-list-item title="Snippets">
+						<mu-icon slot="left" value="code"/>
 					</mu-list-item>
-					<mu-list-item title="Sent mail">
-						<mu-icon slot="left" value="send"/>
+					<mu-list-item title="API">
+						<mu-icon slot="left" value="dns"/>
 					</mu-list-item>
-					<mu-list-item title="Drafts">
-						<mu-icon slot="left" value="drafts"/>
-					</mu-list-item>
-				</mu-list>
 				<mu-divider />
-				<mu-list>
-					<mu-list-item title="All mail">
-						<mu-icon slot="right" value="info"/>
-					</mu-list-item>
-					<mu-list-item title="Trash">
-						<mu-icon slot="right" value="info"/>
-					</mu-list-item>
-					<mu-list-item title="Spam">
-						<mu-icon slot="right" value="info"/>
-					</mu-list-item>
-					<mu-list-item title="Follow up">
-						<mu-icon slot="right" value="info"/>
+					<mu-sub-header>
+						<mu-icon value="settings" size="14" />
+						<span>Settings</span>
+					</mu-sub-header>
+					<mu-list-item title="Theme">
+						<mu-icon slot="left" value="opacity" />
+						<mu-switch slot="right" />
 					</mu-list-item>
 				</mu-list>
     </mu-drawer>
     <mu-content-block>
 			<h1>
+				<mu-icon value="invert colors" />
 				<span>Tools</span>
 			</h1>
 			<p>Content</p>
+			<mu-row>
+				<mu-col
+					width="100"
+					desktop="50"
+					tablet="50"
+				>
+						<mu-card>
+							<mu-card-header 
+								title="Myron Avatar" 
+								subTitle="sub title"
+							>
+								<mu-avatar slot="avatar">
+									<mu-icon value="opacity" />
+								</mu-avatar>
+							</mu-card-header>
+							<mu-card-title 
+								title="Content Title" 
+								subTitle="Content Title"
+							/>
+							<mu-card-text>Card text.</mu-card-text>
+							<mu-card-actions>
+								<mu-flat-button label="Action 1"/>
+								<mu-flat-button label="Action 2"/>
+							</mu-card-actions>
+						</mu-card>
+					</mu-col>
+					<mu-col
+						width="100"
+						desktop="50"
+						tablet="50"
+					>
+						<mu-card>
+							<mu-card-header 
+								title="Myron Avatar" 
+								subTitle="sub title"
+							>
+								<mu-avatar slot="avatar">
+									<mu-icon value="opacity" />
+								</mu-avatar>
+							</mu-card-header>
+							<mu-card-title 
+								title="Content Title" 
+								subTitle="Content Title"
+							/>
+							<mu-card-text>Card text.</mu-card-text>
+							<mu-card-actions>
+								<mu-flat-button label="Action 1"/>
+								<mu-flat-button label="Action 2"/>
+							</mu-card-actions>
+						</mu-card>
+				</mu-col>
+			</mu-row>
     </mu-content-block>
 	</div>
 </template>
@@ -75,8 +141,8 @@ export default {
 	},
 	data() {
 		return {
-			open: false,
-			docked: true
+			open: true,
+			docked: false
 		}
 	}
 }

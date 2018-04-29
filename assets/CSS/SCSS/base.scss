@@ -99,9 +99,9 @@ body {
 }
 
 #app {
-	.logo {
-		svg {
-			//height: $logo-height;
+	> [role='main'] {
+		&.drawer-open {
+			margin-left: 16em;
 		}
 	}
 }
