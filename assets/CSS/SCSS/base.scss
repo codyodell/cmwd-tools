@@ -87,12 +87,11 @@ progress {
 
 body {
 	direction: ltr;
-	font-size: 17px;
+	font-size: $font-size-base;
 	line-height: 1.47059;
 	font-weight: 400;
 	letter-spacing: -0.022em;
-	font-family: 'SF Pro Text', 'SF Pro Icons', 'Apple WebExp Icons Custom',
-		'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: $font-default;
 	font-style: normal;
 	-moz-font-feature-settings: 'kern';
 	-webkit-font-smoothing: antialiased;

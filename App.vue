@@ -4,6 +4,5 @@
 	</div>
 </template>
 <style lang="scss">
-import './assets/CSS/SCSS/CMWD.scss'
-
+import './assets/CSS/SCSS/CMWD.scss';
 </style>
