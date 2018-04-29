@@ -1,20 +1,22 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from "vue";
-import App from "./App";
-import router from "./router";
+import Vue from "vue"
+import App from "./App"
+import router from "./router"
 
-import MuseUI from "muse-ui";
-import "muse-ui/dist/muse-ui.css";
+import MuseUI from "muse-ui"
+import "muse-ui/dist/muse-ui.css"
+import "assets/CSS/SCSS/CMWD.scss"
+
 //import "muse-ui/dist/theme-dark.css"; // use carbon theme
 
-Vue.use(MuseUI);
-Vue.config.productionTip = false;
+Vue.use(MuseUI)
+Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: "#app",
-  router,
-  template: "<App/>",
-  components: { App }
-});
+	el: "#app",
+	router,
+	template: "<App/>",
+	components: { App }
+})
