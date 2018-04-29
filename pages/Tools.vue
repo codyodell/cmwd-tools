@@ -2,8 +2,9 @@
 	<div data-slug="tools" role="main">
     <mu-appbar>
       <mu-icon-button 
-				icon="menu" 
 				slot="left"
+				icon="menu" 
+				@click="toggle()"
 			/>
 			<mu-flat-button
 				slot="left"
@@ -17,11 +18,10 @@
 				</svg>
 			</mu-flat-button>
     </mu-appbar>
-    <mu-sub-header>Subtitle</mu-sub-header>
-    <mu-content-block>
-				<mu-list>
+    <mu-drawer :open="open" :docked="docked" @close="toggle()">
+      <mu-list @itemClick="docked ? '' : toggle()">
 					<mu-list-item title="Switch">
-     		   <mu-switch v-model="switchVal" />
+     		   <mu-switch />
 					</mu-list-item>
 					<mu-list-item title="Inbox">
 						<mu-icon slot="left" value="inbox"/>
@@ -51,6 +51,12 @@
 						<mu-icon slot="right" value="info"/>
 					</mu-list-item>
 				</mu-list>
+    </mu-drawer>
+    <mu-content-block>
+			<h1>
+				<span>Tools</span>
+			</h1>
+			<p>Content</p>
     </mu-content-block>
 	</div>
 </template>
@@ -60,9 +66,18 @@ import Wordpress from '/components/Wordpress'
 export default {
 	components: {
 		Wordpress
+	},
+	methods: {
+		toggle(flag) {
+			this.open = !this.open
+			this.docked = !flag
+		}
+	},
+	data() {
+		return {
+			open: false,
+			docked: true
+		}
 	}
 }
 </script>
-<style lang="scss">
-
-</style>
