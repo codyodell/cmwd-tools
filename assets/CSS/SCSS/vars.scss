@@ -29,8 +29,8 @@ $color-text-secondary-active: rgba(147, 147, 179, 0.96);
 $color-text-ui: rgba(darken($color-ui, $contrast), 0.925);
 $color-text-ui-active: $color-ui;
 $color-text-accent: rgba(
-  desaturate(lighten($color-accent, $contrast), $contrast * 2.5),
-  0.82
+	desaturate(lighten($color-accent, $contrast), $contrast * 2.5),
+	0.82
 );
 $color-text-accent-active: rgba($color-accent, 0.96);
 $color-text-info: darken($color-info, $contrast);
@@ -53,10 +53,10 @@ $color-logo: rgba($color-text-accent, 0.62);
 $color-logo-active: rgba($color-text-primary, 0.82);
 $color-loading: $color-text-accent;
 //Fonts
-$font-default: "-apple-system", "-webkit-system-font", "Helvetica Neue",
-  "Malgun Gothic", "Segoe UI", sans-serif;
-$font-primary: "Futura", "Open Sans", Corbel, Arial, sans-serif;
-$font-serif: "Crimson Text", Times, serif;
+$font-default: 'SF Pro Text', 'SF Pro Icons', 'Apple WebExp Icons Custom',
+	'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-primary: 'Proxima Nova', Futura', 'Open Sans', Corbel, Arial, sans-serif;
+$font-serif: 'Crimson Text', Times, serif;
 //Font Sizes
 $font-size-base: 16px;
 $font-size-xxs: 0.66em;
@@ -127,30 +127,30 @@ $breakpoint-xl-min: $breakpoint-xl + $breakpoint-precision;
 $transition-property-default: all;
 $transition-ease-default: cubic-bezier(1, 0.5, 0.8, 1);
 $transition-ease-natural: cubic-bezier(
-  0.4,
-  0,
-  0.2,
-  1
+	0.4,
+	0,
+	0.2,
+	1
 ); //cubic-bezier(.62, .28, .23, .99);
 $transition-speed-fast: 120ms;
 $transition-speed-default: $transition-speed-fast * 2;
 $transition-speed-slow: $transition-speed-fast * 6;
 $transition-fast: $transition-speed-fast $transition-property-default
-  $transition-ease-natural;
+	$transition-ease-natural;
 $transition-default: $transition-speed-default $transition-property-default
-  $transition-ease-natural;
+	$transition-ease-natural;
 $transition-slow: $transition-speed-slow $transition-property-default
-  $transition-ease-natural;
+	$transition-ease-natural;
 //Logo
 $logo-height: $font-size-lg;
 //Shapes
 $polygon-jagged-edge: polygon(
-  0 0,
-  42.5% 50%,
-  42.5% 25%,
-  100% 100%,
-  100% 0,
-  0 0
+	0 0,
+	42.5% 50%,
+	42.5% 25%,
+	100% 100%,
+	100% 0,
+	0 0
 );
 $logo-motif-width: $navbar-height-lg;
 $logo-motif-height: $navbar-height-lg;

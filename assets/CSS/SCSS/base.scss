@@ -1,19 +1,100 @@
 html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
+
 body {
-  direction: ltr;
-  font-size: 17px;
-  line-height: 1.47059;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Apple WebExp Icons Custom",
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: normal;
-  -moz-font-feature-settings: "kern";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	padding: 0;
 }
-#app {
-  text-align: center;
-  padding: 2.33em;
+
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hgroup,
+p,
+blockquote,
+figure,
+form,
+fieldset,
+input,
+legend,
+pre,
+abbr,
+button {
+	margin: 0;
+	padding: 0;
+}
+
+pre,
+code,
+address,
+caption,
+th,
+figcaption {
+	font-size: 1em;
+	font-weight: normal;
+	font-style: normal;
+}
+
+fieldset,
+iframe,
+img {
+	border: 0;
+}
+
+caption,
+th {
+	text-align: left;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+main,
+section,
+summary,
+details,
+hgroup,
+figure,
+figcaption {
+	display: block;
+}
+
+audio,
+canvas,
+video,
+progress {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+body {
+	direction: ltr;
+	font-size: 17px;
+	line-height: 1.47059;
+	font-weight: 400;
+	letter-spacing: -0.022em;
+	font-family: 'SF Pro Text', 'SF Pro Icons', 'Apple WebExp Icons Custom',
+		'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-style: normal;
+	-moz-font-feature-settings: 'kern';
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }

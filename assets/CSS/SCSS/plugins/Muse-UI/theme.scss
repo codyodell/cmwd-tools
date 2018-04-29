@@ -1,7 +1,6 @@
 //https://raw.githubusercontent.com/museui/muse-ui/master/dist/theme-dark.css
 
 .mu-appbar {
-	background-color: $color-secondary;
 	color: $color-text-ui;
 }
 .mu-avatar {
@@ -75,13 +74,13 @@
 	color: $color-text-primary;
 }
 .mu-checkbox
-	input[type="checkbox"]:checked
+	input[type='checkbox']:checked
 	+ .mu-checkbox-wrapper
 	.mu-checkbox-icon-uncheck {
 	color: $color-text-secondary;
 }
 .mu-checkbox
-	input[type="checkbox"]:checked
+	input[type='checkbox']:checked
 	+ .mu-checkbox-wrapper
 	.mu-checkbox-ripple-wrapper {
 	color: $color-text-secondary;
@@ -347,13 +346,13 @@
 	background-color: $color-dark;
 }
 .mu-radio
-	input[type="radio"]:checked
+	input[type='radio']:checked
 	+ .mu-radio-wrapper
 	.mu-radio-icon-uncheck {
 	color: $color-text-secondary;
 }
 .mu-radio
-	input[type="radio"]:checked
+	input[type='radio']:checked
 	+ .mu-radio-wrapper
 	.mu-radio-ripple-wrapper {
 	color: $color-text-secondary;
@@ -464,26 +463,26 @@
 	color: rgba($color-text-primary, 0.6666);
 }
 .mu-switch
-	input[type="checkbox"]:checked
+	input[type='checkbox']:checked
 	+ .mu-switch-wrapper
 	.mu-switch-track {
 	background-color: rgba(25, 118, 210, 0.5);
 }
 .mu-switch
-	input[type="checkbox"]:checked
+	input[type='checkbox']:checked
 	+ .mu-switch-wrapper
 	.mu-switch-thumb {
 	background-color: $color-secondary;
 	color: $color-text-secondary;
 }
 .mu-switch.disabled
-	input[type="checkbox"]:checked
+	input[type='checkbox']:checked
 	+ .mu-switch-wrapper
 	.mu-switch-track {
 	background-color: #757575;
 }
 .mu-switch.disabled
-	input[type="checkbox"]:checked
+	input[type='checkbox']:checked
 	+ .mu-switch-wrapper
 	.mu-switch-thumb {
 	background-color: #e0e0e0;

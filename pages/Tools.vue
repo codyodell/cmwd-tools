@@ -35,7 +35,7 @@
 
 <script>
 export default {
-	name: "tools",
+	name: 'tools',
 	data() {
 		return {
 			checkboxVal: true,
@@ -44,19 +44,22 @@ export default {
 	},
 	methods: {
 		switchChange(newVal) {
-			console.log("change switchVal", this.switchVal, newVal)
+			console.log('change switchVal', this.switchVal, newVal)
 		},
 		checkboxChange(evt) {
-			console.log("change checkboxVal", this.checkboxVal, evt.target.checked)
+			console.log('change checkboxVal', this.checkboxVal, evt.target.checked)
 		}
 	},
 	watch: {
 		switchVal() {
-			console.log("watch", this.switchVal)
+			console.log('watch', this.switchVal)
 		},
 		checkboxVal() {
-			console.log("watch", this.checkboxVal)
+			console.log('watch', this.checkboxVal)
 		}
 	}
 }
 </script>
+<style lang="scss">
+
+</style>
