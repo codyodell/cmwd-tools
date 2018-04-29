@@ -1,4 +1,5 @@
-/* --- Vars --- */
+@import './colors';
+
 $contrast: 10%;
 $one-unit: 0.0625rem; //~1px
 $gutter: 1.1875em;
@@ -13,28 +14,28 @@ $navbar-height: 2.875em;
 $color-light: #f0f0f0;
 $color-dark: #141617;
 $color-primary: $color-light;
-$color-secondary: rgba(36, 33, 43, 0.96);
+$color-secondary: rgba(36, 33, 43, 0.966);
 $color-ui: darken($color-dark, $contrast);
-$color-ui--lighter: $color-ui--lighter !default;
-$color-ui--lightest: lighten($color-ui,  ($contrast * 2)) !default;
-$color-accent: rgba(120, 254, 213, 0.92);
+$color-ui--lighter: lighten($color-ui, $contrast);
+$color-ui--lightest: lighten($color-ui,  ($contrast * 2));
+$color-accent: rgba(120, 254, 213, 0.933);
 $color-disabled: #cccbd3;
 $color-tertiary: desaturate(darken($color-disabled, $contrast), 100%);
 $color-info: darken($color-disabled, 50%);
-$color-yellow: rgba(255, 245, 154, 0.96);
+$color-yellow: rgba(255, 245, 154, 0.966);
 //Secondary Colors
 $color-primary-active: lighten($color-primary, $contrast);
-$color-text-primary: rgba($color-primary, 0.875);
+$color-text-primary: rgba($color-primary, 0.866);
 $color-text-primary-active: $color-primary-active;
-$color-text-secondary: rgba(147, 147, 179, 0.875);
-$color-text-secondary-active: rgba(147, 147, 179, 0.96);
-$color-text-ui: rgba(darken($color-ui, $contrast), 0.925);
+$color-text-secondary: rgba(147, 147, 179, 0.866);
+$color-text-secondary-active: rgba(147, 147, 179, 0.966);
+$color-text-ui: rgba(darken($color-ui, $contrast), 0.933);
 $color-text-ui-active: $color-ui;
 $color-text-accent: rgba(
 	desaturate(lighten($color-accent, $contrast), $contrast * 2.5),
 	0.82
 );
-$color-text-accent-active: rgba($color-accent, 0.96);
+$color-text-accent-active: rgba($color-accent, 0.966);
 $color-text-info: darken($color-info, $contrast);
 $color-text-notification: $color-text-primary-active;
 $color-text-highlight: rgba(42, 40, 62, 1);
