@@ -1,0 +1,158 @@
+/* --- Vars --- */
+$contrast: 10%;
+$one-unit: 0.0625rem; //~1px
+$gutter: 1.1875em;
+$vertical-rhythm: 1.33;
+$vertical-rhythm-xs: 0.6875em;
+$vertical-rhythm-sm: 0.875em;
+$vertical-rhythm-md: 1.1875em;
+$vertical-rhythm-lg: 1.875em;
+$vertical-rhythm-xl: 2em;
+$navbar-height: 2.875em;
+//Base Colors
+$color-light: #f0f0f0;
+$color-dark: #141617;
+$color-primary: $color-light;
+$color-secondary: rgba(36, 33, 43, 0.96);
+$color-ui: darken($color-dark, $contrast);
+$color-accent: rgba(120, 254, 213, 0.92);
+$color-disabled: #cccbd3;
+$color-tertiary: desaturate(darken($color-disabled, $contrast), 100%);
+$color-info: darken($color-disabled, 50%);
+$color-yellow: rgba(255, 245, 154, 0.96);
+//Secondary Colors
+$color-primary-active: lighten($color-primary, $contrast);
+$color-text-primary: rgba($color-primary, 0.875);
+$color-text-primary-active: $color-primary-active;
+$color-text-secondary: rgba(147, 147, 179, 0.875);
+$color-text-secondary-active: rgba(147, 147, 179, 0.96);
+$color-text-ui: rgba(darken($color-ui, $contrast), 0.925);
+$color-text-ui-active: $color-ui;
+$color-text-accent: rgba(
+  desaturate(lighten($color-accent, $contrast), $contrast * 2.5),
+  0.82
+);
+$color-text-accent-active: rgba($color-accent, 0.96);
+$color-text-info: darken($color-info, $contrast);
+$color-text-notification: $color-text-primary-active;
+$color-text-highlight: rgba(42, 40, 62, 1);
+$color-highlight: rgba(181, 244, 225, 0.87);
+$color-border: $color-primary;
+$color-border-active: $color-text-accent;
+$color-bg-notification: rgba(211, 197, 255, 0.166);
+$color-logo-bg: $color-dark;
+$color-navbar-bg: $color-light;
+$color-navbar-items: rgba($color-text-primary, 0.72);
+$color-navbar-active: $color-text-ui;
+$color-navbar-items-active: $color-text-secondary-active;
+$color-navbar-bottom-bg: $color-logo-bg;
+$color-navbar-bottom-items: rgba($color-text-primary, 0.488);
+$color-navbar-bottom-active: rgba($color-text-primary, 0.775);
+$color-navbar-bottom-items-active: $color-text-secondary-active;
+$color-logo: rgba($color-text-accent, 0.62);
+$color-logo-active: rgba($color-text-primary, 0.82);
+$color-loading: $color-text-accent;
+//Fonts
+$font-default: "-apple-system", "-webkit-system-font", "Helvetica Neue",
+  "Malgun Gothic", "Segoe UI", sans-serif;
+$font-primary: "Futura", "Open Sans", Corbel, Arial, sans-serif;
+$font-serif: "Crimson Text", Times, serif;
+//Font Sizes
+$font-size-base: 16px;
+$font-size-xxs: 0.66em;
+$font-size-xs: 0.75em;
+$font-size-sm: 0.875em;
+$font-size-md: 1em;
+$font-size-card: 1.33em;
+$font-size-lg: 1.75em;
+$font-size-xl: 2.75em; //3.33
+$font-size-xxl: 4.66em;
+$font-size-vw: calc(1.5em + 0.5vw);
+//Font Weights
+$font-weight-light: 200;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+//Containers
+$width-xl: 80em;
+$width-lg: 60em;
+$width-md: 45em;
+$width-sm: 30em;
+$width-xs: 16em;
+$width-xxs: 12.5em;
+//Breakpoints
+$breakpoint-precision: 0.0001em;
+$breakpoint-xs: 36em; //576px
+$breakpoint-sm: 48em; //768px
+$breakpoint-md: 65em; //1040px
+$breakpoint-lg: 80em; //1280px
+$breakpoint-xl: 96em; //1536px
+//Gutter Sizes
+$gutter-xxs: 0.33em;
+$gutter-xs: 0.75em;
+$gutter-sm: 0.875em;
+$gutter-md: 1.166em;
+$gutter-lg: 1.5em;
+$gutter-xl: 1.75em;
+$gutter-xxl: 2.75em;
+$gutter-vw: calc(#{$gutter-lg} + 1.33vw);
+$gutter-vw-xs: calc(1.5em + 2vw);
+$gutter-vw-sm: calc(#{$gutter-lg} + 0.9375vw);
+$gutter-vw-lg: calc(#{$gutter-xxl} + 3.33vw);
+$gutter-vw-xl: calc(#{$gutter-lg} + 2vw);
+$gutter-vw-xxl: calc(#{$gutter-lg} + 2.5vw);
+$gutter-notification: 0.33em 1.133em;
+$gutter-navbar-sm: 0.66em;
+//Borders
+$border-width: $one-unit;
+$border-style: solid;
+$border-radius-xs: 0.1166em;
+$border-radius-md: 0.166em;
+$border: $border-width $border-style $color-border;
+//Nav
+$navbar-height-sm: $navbar-height * 0.75;
+$navbar-height-md: $navbar-height;
+$navbar-height-lg: 4.375rem;
+$gutter-navbar: $navbar-height-sm;
+$font-size-navbar-sm: $font-size-xs;
+$font-size-navbar: $font-size-sm;
+$font-size-navbar-lg: calc(0.5em + 0.88vw);
+$breakpoint-xs-min: $breakpoint-xs + $breakpoint-precision;
+$breakpoint-sm-min: $breakpoint-sm + $breakpoint-precision;
+$breakpoint-md-min: $breakpoint-md + $breakpoint-precision;
+$breakpoint-lg-min: $breakpoint-lg + $breakpoint-precision;
+$breakpoint-xl-min: $breakpoint-xl + $breakpoint-precision;
+//Transitions
+$transition-property-default: all;
+$transition-ease-default: cubic-bezier(1, 0.5, 0.8, 1);
+$transition-ease-natural: cubic-bezier(
+  0.4,
+  0,
+  0.2,
+  1
+); //cubic-bezier(.62, .28, .23, .99);
+$transition-speed-fast: 120ms;
+$transition-speed-default: $transition-speed-fast * 2;
+$transition-speed-slow: $transition-speed-fast * 6;
+$transition-fast: $transition-speed-fast $transition-property-default
+  $transition-ease-natural;
+$transition-default: $transition-speed-default $transition-property-default
+  $transition-ease-natural;
+$transition-slow: $transition-speed-slow $transition-property-default
+  $transition-ease-natural;
+//Logo
+$logo-height: $font-size-lg;
+//Shapes
+$polygon-jagged-edge: polygon(
+  0 0,
+  42.5% 50%,
+  42.5% 25%,
+  100% 100%,
+  100% 0,
+  0 0
+);
+$logo-motif-width: $navbar-height-lg;
+$logo-motif-height: $navbar-height-lg;
+$card-motif-width: 1.25em;
+$card-motif-height: $card-motif-width;
