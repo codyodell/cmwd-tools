@@ -1,5 +1,5 @@
 <template>
-	<div class="tools" role="main">
+	<div data-slug="tools" role="main">
     <mu-appbar>
       <mu-icon-button 
 				icon="menu" 
@@ -17,12 +17,11 @@
 				</svg>
 			</mu-flat-button>
     </mu-appbar>
-    <mu-sub-header>Subtite</mu-sub-header>
+    <mu-sub-header>Subtitle</mu-sub-header>
     <mu-content-block>
-			<mobile-tear-sheet>
 				<mu-list>
 					<mu-list-item title="Switch">
-     		   <mu-switch v-model="switchVal" @change="switchChange"/>
+     		   <mu-switch v-model="switchVal" />
 					</mu-list-item>
 					<mu-list-item title="Inbox">
 						<mu-icon slot="left" value="inbox"/>
@@ -52,35 +51,15 @@
 						<mu-icon slot="right" value="info"/>
 					</mu-list-item>
 				</mu-list>
-			</mobile-tear-sheet>
     </mu-content-block>
 	</div>
 </template>
-
 <script>
+import Wordpress from '/components/Wordpress'
+
 export default {
-	name: 'tools',
-	data() {
-		return {
-			checkboxVal: true,
-			switchVal: true
-		}
-	},
-	methods: {
-		switchChange(newVal) {
-			console.log('change switchVal', this.switchVal, newVal)
-		},
-		checkboxChange(evt) {
-			console.log('change checkboxVal', this.checkboxVal, evt.target.checked)
-		}
-	},
-	watch: {
-		switchVal() {
-			console.log('watch', this.switchVal)
-		},
-		checkboxVal() {
-			console.log('watch', this.checkboxVal)
-		}
+	components: {
+		Wordpress
 	}
 }
 </script>

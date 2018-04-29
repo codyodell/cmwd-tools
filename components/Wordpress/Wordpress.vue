@@ -6,7 +6,6 @@
 </template>
 <script>
 export default {
-  name: 'wordpress-api',
   computed: {
     url () {
       return this.protocol + '://' + this.url + '/' + this.path
@@ -20,12 +19,14 @@ export default {
   mounted () {
     this.$nextTick(function(){
       console.log('Api.vue > Mounted > $nextTick')
-    }
+    })
   },
   data () {
+    return {
     protocol: 'https',
     url: 'codyodell.net',
     path: 'wp-json'
+    }
   },
   created () {
     this.request()
@@ -33,7 +34,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

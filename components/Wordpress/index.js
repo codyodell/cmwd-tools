@@ -1,3 +1,3 @@
-import "./Api";
+import './Wordpress.vue'
 
-//export default WordpressApi;
+//export default Wordpress
