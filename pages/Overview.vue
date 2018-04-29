@@ -49,7 +49,7 @@ export default {
 	components: {
 		Wordpress
 	},
-	data() {
+	Data() {
 		return {
 			title: 'Overview',
 			subtitle: 'Wordpress Tools'

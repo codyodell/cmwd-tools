@@ -1,6 +1,5 @@
 <template>
   <div 
-    :id="identifier"
     :data-slug="slug"
     :data-layout="layout" 
   >
@@ -33,7 +32,6 @@ export default {
 	name: 'layout-error',
 	Data() {
 		return {
-			identifier: 'app',
 			layout: 'error',
 			slug: 'error-404',
 			error_code: 404,

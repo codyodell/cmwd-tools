@@ -15,3 +15,7 @@ export default {
 	}
 }
 </script>
+<style lang="scss">
+@import 'muse-ui/dist/muse-ui.css';
+@import './assets/CSS/SCSS/CMWD.scss';
+</style>
