@@ -10,7 +10,7 @@
 }
 .mu-avatar {
 	color: $color-text-ui;
-	background-color: $color-ui--lightest;
+	background-color: $color-ui-lightest;
 }
 .mu-badge {
 	background-color: $color-accent;
@@ -29,7 +29,7 @@ body {
 	color: $color-text-primary;
 }
 .mu-bottom-nav {
-	background-color: $color-ui--lighter;
+	background-color: $color-ui__lighter;
 }
 .mu-bottom-nav-shift {
 	background-color: $color-accent;
@@ -53,7 +53,7 @@ body {
 	color: $color-text-ui;
 }
 .mu-bottom-sheet {
-	background-color: $color-ui--lighter;
+	background-color: $color-ui__lighter;
 }
 .mu-card {
 	background-color: $color-ui;
@@ -133,7 +133,7 @@ body {
 	color: $color-text-primary;
 }
 .mu-calendar-year {
-	background-color: $color-ui--lighter;
+	background-color: $color-ui__lighter;
 }
 .mu-date-display {
 	background-color: rgba($color-text-primary, 0.133);
@@ -167,7 +167,7 @@ body {
 	color: $color-text-primary;
 }
 .mu-calendar-year {
-	background-color: $color-ui--lighter;
+	background-color: $color-ui__lighter;
 }
 .mu-date-display {
 	background-color: rgba($color-text-primary, 0.133);
@@ -198,7 +198,7 @@ body {
 	color: $color-accent;
 }
 .mu-dialog {
-	background-color: $color-ui--lighter;
+	background-color: $color-ui__lighter;
 }
 .mu-dialog-footer.scrollable,
 .mu-dialog-header.scrollable {
@@ -265,7 +265,7 @@ body {
 	border-color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
 }
 .mu-linear-progress {
-	background-color: #757575;
+	background-color: $color-ui-lightest;
 }
 .mu-linear-progress-indeterminate {
 	background-color: $color-accent;
@@ -283,13 +283,13 @@ body {
 	color: $color-accent;
 }
 .mu-item-link-icon {
-	color: #757575;
+	color: $color-ui-lightest;
 }
 .mu-item-left {
-	color: #757575;
+	color: $color-ui-lightest;
 }
 .mu-item-right {
-	color: #757575;
+	color: $color-ui-lightest;
 }
 .mu-item-after {
 	color: rgba($color-text-primary, 0.6666);
@@ -310,10 +310,10 @@ body {
 	color: rgba($color-text-primary, 0.3333);
 }
 .mu-menu-item-left-icon {
-	color: #757575;
+	color: $color-ui-lightest;
 }
 .mu-menu-item-right-icon {
-	color: #757575;
+	color: $color-ui-lightest;
 }
 .mu-pagination-item {
 	color: $color-text-primary;
@@ -329,11 +329,11 @@ body {
 	color: rgba($color-text-primary, 0.3333);
 }
 .mu-paper {
-	background-color: $color-ui--lighter;
+	background-color: $color-ui__lighter;
 	color: $color-text-primary;
 }
 .mu-picker {
-	background-color: $color-ui--lighter;
+	background-color: $color-ui__lighter;
 }
 .mu-picker-center-highlight::before,
 .mu-picker-center-highlight::after {
@@ -349,10 +349,10 @@ body {
 	color: $color-text-primary;
 }
 .mu-popover {
-	background-color: $color-ui--lighter;
+	background-color: $color-ui__lighter;
 }
 .mu-popup {
-	background-color: $color-ui--lighter;
+	background-color: $color-ui__lighter;
 }
 .mu-radio
 	input[type='radio']:checked
@@ -405,13 +405,13 @@ body {
 	color: $color-accent;
 }
 .mu-slider-track {
-	background-color: #757575;
+	background-color: $color-ui-lightest;
 }
 .mu-slider-fill {
 	background-color: $color-accent;
 }
 .mu-slider-fill.disabled {
-	background-color: #757575;
+	background-color: $color-ui-lightest;
 }
 .mu-slider-thumb {
 	background-color: $color-accent;
@@ -419,8 +419,8 @@ body {
 }
 .mu-slider.zero .mu-slider-thumb,
 .mu-slider.disabled .mu-slider-thumb {
-	border-color: #757575;
-	color: #757575;
+	border-color: $color-ui-lightest;
+	color: $color-ui-lightest;
 	background-color: $color-ui;
 }
 .mu-snackbar {
@@ -486,7 +486,7 @@ body {
 	input[type='checkbox']:checked
 	+ .mu-switch-wrapper
 	.mu-switch-track {
-	background-color: #757575;
+	background-color: $color-ui-lightest;
 }
 .mu-switch.disabled
 	input[type='checkbox']:checked
@@ -501,14 +501,14 @@ body {
 	color: rgba($color-text-primary, 0.3333);
 }
 .mu-switch-track {
-	background-color: #757575;
+	background-color: $color-ui-lightest;
 }
 .mu-switch.disabled .mu-switch-track {
-	background-color: #757575;
+	background-color: $color-ui-lightest;
 }
 .mu-switch-thumb {
 	color: $color-text-primary;
-	background-color: #f50057;
+	background-color: rgba($color-secondary, 0.866);
 }
 .mu-switch.disabled .mu-switch-thumb {
 	background-color: #e0e0e0;

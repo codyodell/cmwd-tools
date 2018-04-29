@@ -1,6 +1,8 @@
 @import './colors';
 
 $contrast: 10%;
+$contrast-lo: $contrast / 2;
+$contrast-hi: $contrast * 2;
 $one-unit: 0.0625rem; //~1px
 $gutter: 1.1875em;
 $vertical-rhythm: 1.33;
@@ -12,12 +14,14 @@ $vertical-rhythm-xl: 2em;
 $navbar-height: 2.875em;
 //Base Colors
 $color-light: #f0f0f0;
+$color-lighter: lighten($color-light, $contrast);
 $color-dark: #141617;
-$color-primary: $color-light;
+$color-darker: darken($color-dark, $contrast);
+$color-primary: rgba($color-light, 0.966);
 $color-secondary: rgba(36, 33, 43, 0.966);
 $color-ui: darken($color-dark, $contrast);
-$color-ui--lighter: lighten($color-ui, $contrast);
-$color-ui--lightest: lighten($color-ui,  ($contrast * 2));
+$color-ui__lighter: lighten($color-ui, $contrast);
+$color-ui__lightest: lighten($color-ui, $contrast-hi);
 $color-accent: rgba(120, 254, 213, 0.933);
 $color-disabled: #cccbd3;
 $color-tertiary: desaturate(darken($color-disabled, $contrast), 100%);
@@ -32,7 +36,7 @@ $color-text-secondary-active: rgba(147, 147, 179, 0.966);
 $color-text-ui: rgba(darken($color-ui, $contrast), 0.933);
 $color-text-ui-active: $color-ui;
 $color-text-accent: rgba(
-	desaturate(lighten($color-accent, $contrast), $contrast * 2.5),
+	desaturate(lighten($color-accent, $contrast), $contrast-hi),
 	0.82
 );
 $color-text-accent-active: rgba($color-accent, 0.966);

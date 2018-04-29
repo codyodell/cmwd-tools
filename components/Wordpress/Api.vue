@@ -17,8 +17,10 @@ export default {
       console.log(this.$http)
     }
   },
-  asyncData () {
-    console.log('test', axios)
+  mounted () {
+    this.$nextTick(function(){
+      console.log('Api.vue > Mounted > $nextTick')
+    }
   },
   data () {
     protocol: 'https',
