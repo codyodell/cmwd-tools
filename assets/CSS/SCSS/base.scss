@@ -97,3 +97,11 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+#app {
+	.logo {
+		svg {
+			//height: $logo-height;
+		}
+	}
+}
