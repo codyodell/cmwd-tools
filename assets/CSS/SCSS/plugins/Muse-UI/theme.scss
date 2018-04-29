@@ -10,7 +10,7 @@
 }
 .mu-avatar {
 	color: $color-text-ui;
-	background-color: $color-ui-lightest;
+	background-color: $color-ui__lightest;
 }
 .mu-badge {
 	background-color: $color-accent;
@@ -265,7 +265,7 @@ body {
 	border-color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
 }
 .mu-linear-progress {
-	background-color: $color-ui-lightest;
+	background-color: $color-ui__lightest;
 }
 .mu-linear-progress-indeterminate {
 	background-color: $color-accent;
@@ -283,13 +283,13 @@ body {
 	color: $color-accent;
 }
 .mu-item-link-icon {
-	color: $color-ui-lightest;
+	color: $color-ui__lightest;
 }
 .mu-item-left {
-	color: $color-ui-lightest;
+	color: $color-ui__lightest;
 }
 .mu-item-right {
-	color: $color-ui-lightest;
+	color: $color-ui__lightest;
 }
 .mu-item-after {
 	color: rgba($color-text-primary, 0.6666);
@@ -310,10 +310,10 @@ body {
 	color: rgba($color-text-primary, 0.3333);
 }
 .mu-menu-item-left-icon {
-	color: $color-ui-lightest;
+	color: $color-ui__lightest;
 }
 .mu-menu-item-right-icon {
-	color: $color-ui-lightest;
+	color: $color-ui__lightest;
 }
 .mu-pagination-item {
 	color: $color-text-primary;
@@ -405,13 +405,13 @@ body {
 	color: $color-accent;
 }
 .mu-slider-track {
-	background-color: $color-ui-lightest;
+	background-color: $color-ui__lightest;
 }
 .mu-slider-fill {
 	background-color: $color-accent;
 }
 .mu-slider-fill.disabled {
-	background-color: $color-ui-lightest;
+	background-color: $color-ui__lightest;
 }
 .mu-slider-thumb {
 	background-color: $color-accent;
@@ -419,8 +419,8 @@ body {
 }
 .mu-slider.zero .mu-slider-thumb,
 .mu-slider.disabled .mu-slider-thumb {
-	border-color: $color-ui-lightest;
-	color: $color-ui-lightest;
+	border-color: $color-ui__lightest;
+	color: $color-ui__lightest;
 	background-color: $color-ui;
 }
 .mu-snackbar {
@@ -486,7 +486,7 @@ body {
 	input[type='checkbox']:checked
 	+ .mu-switch-wrapper
 	.mu-switch-track {
-	background-color: $color-ui-lightest;
+	background-color: $color-ui__lightest;
 }
 .mu-switch.disabled
 	input[type='checkbox']:checked
@@ -501,10 +501,10 @@ body {
 	color: rgba($color-text-primary, 0.3333);
 }
 .mu-switch-track {
-	background-color: $color-ui-lightest;
+	background-color: $color-ui__lightest;
 }
 .mu-switch.disabled .mu-switch-track {
-	background-color: $color-ui-lightest;
+	background-color: $color-ui__lightest;
 }
 .mu-switch-thumb {
 	color: $color-text-primary;
