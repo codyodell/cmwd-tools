@@ -58,7 +58,7 @@ export default new Router({
 		{
 			path: '/*',
 			name: 'Error [404]',
-			component: () => import('../layouts/Error.vue')
+			component: () => import('../pages/Error.vue')
 		}
 	]
 })

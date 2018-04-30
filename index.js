@@ -8,7 +8,6 @@ import 'muse-ui/dist/muse-ui.css'
 import './assets/CSS/SCSS/CMWD.scss'
 Vue.use(MuseUI)
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
 	el: '#app',

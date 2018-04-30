@@ -1,6 +1,8 @@
 <template>
 	<div id="app">
-		<layout-default />
+		<layout-default>
+			<router-view />
+		</layout-default>
 	</div>
 </template>
 <script>

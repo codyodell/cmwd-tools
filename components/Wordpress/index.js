@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import Wordpress from 'Wordpress'
 
 Wordpress.install = function(Vue) {

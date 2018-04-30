@@ -9,7 +9,7 @@
       <mu-card>
         <mu-card-title 
           :title="title" 
-          :subtitle="subtitle" 
+          :subtitle="url" 
         ></mu-card-title>
       </mu-card>
     </mu-content-block>
@@ -25,10 +25,10 @@ export default {
 	},
 	data() {
 		return {
-			theme: 'lighter',
+			theme: 'dark',
 			slug: 'api',
-			title: 'External Requests',
-			subtitle: 'Tools > Wordpress > API Tool',
+			title: 'API Tool',
+			subtitle: 'Tools > Wordpress',
 			url: {
 				protocol: 'https',
 				base: 'www.codyodell.net',
@@ -39,13 +39,71 @@ export default {
 			Requests: [],
 			Messages: [],
 			loading: false
-		}
+		},
+    methods: {
+      send_request (options, fnCallbackSuccess, fnCallbackError) {
+        options = options || {}
+        let params = options.params || {},
+            method: options.method || 'GET',
+            before: options.before || function() {
+              this.toggle_loading(true)
+              this.add_request({
+                title: 'Wordpress API v2',
+                subtitle: this.url,
+                icon: 'https',
+                data: {
+                  url: this.url,
+                  method: options.method,
+                  request: options.params,
+                  response: resp
+                }
+              })
+            }
+          }
+        },
+        fnSuccess = fnCallbackSuccess || (resp) => {
+            this.toggle_loading(false)
+            this.Requests.push({
+              status: 'Pending',
+              title: 'Wordpress API v2',
+              subtitle: this.url,
+              icon: 'https',
+              data: {
+                url: this.url,
+                method: options.method,
+                request: options.params 
+              }
+            })
+          },
+          fnError = fnCallbackError || (error) => {
+            console.log('Error:', error)
+            this.add_message({
+              type: 'error',
+              message: error
+            })
+          }
+        // Send the Request
+        this.$http
+          .get(this.url, params)
+          .then(fnSuccess, fnError)
+      },
+      toggle_loading (bShow) {
+        this.loading = bShow || !this.loading
+      },
+      add_request (objRequest) {
+        this.Requests.push(objRequest)
+        let nIndex = this.Requests.length - 1
+        return nIndex || false
+      },
+      add_message (objMessage) {
+        this.Messages.push(objMessage)
+        let nIndex = this.Messages.length - 1
+        return nIndex || false
+      }
+    }
 	},
 	mounted() {
-		console.log('URL: ', this.url)
+    this.send_request()
 	}
 }
 </script>
-<style lang="scss">
-
-</style>

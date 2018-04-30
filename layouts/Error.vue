@@ -12,7 +12,7 @@
       </mu-sub-header>
       <mu-content-block>
         <mu-row
-          gutter="true"
+          gutter
         >
           <mu-col
             width="100"
