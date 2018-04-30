@@ -10,7 +10,7 @@
           title="Recent Activity" 
         >
           <mu-avatar slot="avatar">
-            <mu-icon value="https" />
+            <mu-icon value="tune" />
           </mu-avatar>
         </mu-card-title>
       </mu-card>
@@ -36,11 +36,16 @@ export default {
 	},
 	data() {
 		return {
+			theme: 'lighter',
+			slug: 'wordpress',
 			title: 'Wordpress',
 			subtitle: 'https://www.codyodell.net/',
-			protocol: 'https',
-			url: 'codyodell.net',
-			path: 'wp-json'
+			url: {
+				protocol: 'https',
+				base: 'codyodell.net',
+				path: 'wp-json',
+				endpoints: []
+			}
 		}
 	},
 	created() {

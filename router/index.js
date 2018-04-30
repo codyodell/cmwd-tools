@@ -9,28 +9,56 @@ export default new Router({
 		{
 			path: '/',
 			name: 'Overview',
-			component: () => import('../pages/Overview.vue')
+			component: () => import('/pages/Overview.vue')
 		},
 		{
-			path: '/api',
-			name: 'API',
-			component: () => import('../pages/Api.vue'),
+			path: '/api-tool',
+			name: 'API Tool',
+			component: () => import('/pages/Api.vue'),
 			children: [
 				{
+					path: '/api/requests',
+					name: 'Requests',
+					component: () => import('/pages/Api.vue')
+				},
+				{
 					path: '/api/endpoints',
-					name: 'Endpoints'
+					name: 'Endpoints',
+					component: () => import('/pages/Api.vue')
+				}
+			]
+		},
+		{
+			path: '/wp',
+			name: 'Wordpress',
+			component: () => import('/pages/Wordpress.vue'),
+			children: [
+				{
+					path: '/wp/posts',
+					name: 'Posts',
+					component: () => import('/pages/Wordpress.vue')
 				}
 			]
 		},
 		{
 			path: '/muse-ui',
 			name: 'Muse UI',
-			component: () => import('../pages/MuseUI.vue')
+			component: () => import('/pages/MuseUI.vue')
+		},
+		{
+			path: '/settings',
+			name: 'Settings',
+			component: () => import('/pages/Settings.vue')
+		},
+		{
+			path: '/login',
+			name: 'Login',
+			component: () => import('/pages/Login.vue')
 		},
 		{
 			path: '/*',
 			name: 'Error [404]',
-			component: () => import('../layouts/error.vue')
+			component: () => import('../layouts/Error.vue')
 		}
 	]
 })
