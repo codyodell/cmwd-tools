@@ -7,13 +7,7 @@ export default new Router({
 	mode: 'history',
 	routes: [
 		{
-			path: '/',
-			name: 'Home',
-			//redirect: '/overview'
-			component: () => import('../pages/Overview.vue')
-		},
-		{
-			path: '/overview',
+			path: '',
 			name: 'Overview',
 			component: () => import('../pages/Overview.vue')
 		},
