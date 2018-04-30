@@ -9,7 +9,8 @@ export default new Router({
 		{
 			path: '/',
 			name: 'Home',
-			redirect: '/overview'
+			//redirect: '/overview'
+			component: () => import('../pages/Overview.vue')
 		},
 		{
 			path: '/overview',
