@@ -1,3 +1,1 @@
-import './Wordpress.vue'
-
-//export default Wordpress
+export { Wordpress } from 'Wordpress.vue'

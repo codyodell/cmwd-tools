@@ -51,7 +51,7 @@ export default {
 		LayoutDefault,
 		Wordpress
 	},
-	Data() {
+	data() {
 		return {
 			title: 'Muse UI',
 			subtitle: 'Vue.js UI Library'

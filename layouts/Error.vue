@@ -30,7 +30,7 @@
 <script>
 export default {
 	name: 'layout-error',
-	Data() {
+	data() {
 		return {
 			layout: 'error',
 			slug: 'error-404',

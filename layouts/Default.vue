@@ -1,9 +1,10 @@
 <template>
   <div 
 		:data-slug="slug" 
-		:data-layout="layout"   
+		:data-layout="layout"
+		:class="{'sidebar-open': sidebar_open}"
 	>
-  	<mu-appbar>
+  	<mu-appbar fullWidth>
 			<mu-icon-button 
 				slot="left"
 				icon="menu" 
@@ -25,7 +26,7 @@
 			</slot>
 		</mu-appbar>
 		<mu-drawer 
-			:open="sidebar_open" 
+			:open.sync="sidebar_open" 
 			@close="toggle()"
 		>
 			<mu-list
@@ -77,9 +78,10 @@ export default {
 			this.sidebar_docked = !flag
 		}
 	},
-	Data() {
+	data() {
 		return {
 			layout: 'default',
+			slug: 'overview',
 			title: 'Overview',
 			subtitle: 'Wordpress Tools',
 			sidebar_open: true,

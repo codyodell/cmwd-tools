@@ -1,5 +1,7 @@
 <template>
-	<layout-default />
+	<div id="app">
+		<layout-default />
+	</div>
 </template>
 <script>
 import LayoutDefault from '/layouts/Default'

@@ -1,11 +1,15 @@
 <template>
 	<div>
-		<h1>
-			<span>{{ title }}</span>
-		</h1>
 		<mu-sub-header>{{ subtitle }}</mu-sub-header>
 		<mu-content-block>
 			<mu-row>
+				<mu-col
+					width="100"
+				>
+					<h1>
+						<span>{{ title }}</span>
+					</h1>
+				</mu-col>
 				<mu-col
 					width="100"
 					desktop="50"
@@ -51,13 +55,13 @@
 	</div>
 </template>
 <script>
-import Wordpress from '/components/Api/Wordpress.vue'
+import Wordpress from '/components/Api'
 
 export default {
 	components: {
 		Wordpress
 	},
-	Data() {
+	data() {
 		return {
 			title: 'Overview',
 			subtitle: 'Wordpress Tools'
