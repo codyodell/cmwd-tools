@@ -1,7 +1,5 @@
 <template>
-	<layout-default>
-		<router-view />
-	</layout-default>
+	<layout-default />
 </template>
 <script>
 import LayoutDefault from '/layouts/Default'

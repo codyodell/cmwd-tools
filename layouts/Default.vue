@@ -64,23 +64,7 @@
 			class="content"
 			role="main"
 		>
-			<mu-sub-header>
-				<span>{{ subtitle }}</span>
-			</mu-sub-header>
-			<mu-content-block>
-				<mu-row
-					gutter
-				>
-					<mu-col
-						width="100"
-					>
-						<h1>
-							<span>{{ title }}</span>
-						</h1>
-					</mu-col>
-					<router-view />
-				</mu-row>
-			</mu-content-block>
+			<router-view />
 		</main>
   </div>  	
 </template>
