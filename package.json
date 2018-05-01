@@ -5,10 +5,14 @@
 	"keywords": [],
 	"main": "index.js",
 	"dependencies": {
-		"axios-mock-adapter": "1.15.0",
+		"es6-promise": "4.2.4",
 		"muse-ui": "2.1.0",
 		"vue": "2.5.2",
-		"vue-resource": "latest",
-		"vue-router": "3.0.1"
+		"vue-lazyload": "1.2.3",
+		"vue-loading-overlay": "2.0.4",
+		"vue-router": "3.0.1",
+		"vuex": "3.0.1",
+		"vuex-rest-api": "2.7.0",
+		"vuex-router-sync": "5.0.0"
 	}
 }

@@ -1,5 +1,5 @@
 <template>
-	<layout-default>
+  <mu-row>
 		<mu-col
 			width="100"
 			desktop="50"
@@ -40,10 +40,9 @@
 				</mu-card-actions>
 			</mu-card>
 		</mu-col>
-	</layout-default>
+	</mu-row>
 </template>
 <script>
-import LayoutDefault from '/layouts/Default'
 import Wordpress from '/components/Wordpress'
 
 export default {

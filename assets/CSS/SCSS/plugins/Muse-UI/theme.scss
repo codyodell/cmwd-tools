@@ -1,8 +1,11 @@
 /*=== THEME ===*/
 
-body {
-	background-color: rgba($color-dark, 0.833);
+#app {
+	background-color: rgba($color-dark, 0.866);
 	color: $color-text-primary;
+  a {
+		 color: inherit;
+	}
 }
 .mu-appbar {
 	background-color: $color-accent;
@@ -23,10 +26,6 @@ body {
 .mu-badge-secondary {
 	background-color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
 	color: $color-text-ui;
-}
-body {
-	background-color: $color-ui;
-	color: $color-text-primary;
 }
 .mu-bottom-nav {
 	background-color: $color-ui__lighter;
@@ -404,7 +403,7 @@ body {
 	}
 	&.mu-raised-button-inverse {
 		//color: $color-text-ui;
-		font-weight: $font-weight-light;
+		//font-weight: $font-weight-light;
 	}
 }
 .mu-refresh-control {

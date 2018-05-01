@@ -6,7 +6,7 @@
 	</div>
 </template>
 <script>
-import LayoutDefault from '/layouts/Default'
+import LayoutDefault from '/layouts/default'
 
 export default {
 	components: {

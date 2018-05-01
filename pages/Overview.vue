@@ -9,23 +9,6 @@
 					<h1>
 						<span>{{ title }}</span>
 					</h1>
-					<mu-stepper :activeStep="1">
-						<mu-step>
-							<mu-step-label>
-								选择活动地点
-							</mu-step-label>
-						</mu-step>
-						<mu-step>
-							<mu-step-button>
-								创建一个群组
-							</mu-step-button>
-						</mu-step>
-						<mu-step>
-							<mu-step-label>
-								宣传活动
-							</mu-step-label>
-						</mu-step>
-					</mu-stepper>
 				</mu-col>
 				<mu-col
 					width="100"
@@ -34,8 +17,8 @@
 				>
 					<mu-card>
 						<mu-card-title 
-							title="API" 
-							subtitle="https://www.codyodell.net/"
+							:title="title" 
+							:subtitle="subtitle"
 						>
 							<mu-avatar slot="avatar">
 								<mu-icon value="https" />
@@ -72,17 +55,19 @@
 	</div>
 </template>
 <script>
-import { Wordpress } from '/components/Wordpress/index.js'
+import Api from '/plugins/Api'
+import Wordpress from '/plugins/Wordpress'
 
 export default {
 	components: {
+		Api,
 		Wordpress
 	},
 	data() {
 		return {
-			slug: 'overview',
-			title: 'Overview',
-			subtitle: 'Wordpress Tools'
+			slug: 'cmwd-tools',
+			title: 'CMWD Tools',
+			subtitle: 'https://www.codyodell.net/'
 		}
 	}
 }
