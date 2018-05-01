@@ -19,11 +19,6 @@ export default {
       type: String,
       default: () {
         return ''
-      },
-    title: {
-      type: String,
-      default: () {
-        return ''
       }
     },
     subtitle: {
