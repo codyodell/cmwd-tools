@@ -1,53 +1,39 @@
 <template>
+  <aside
+    data-open="open"
+    data-loading="loading"
+  >
     <mu-drawer
-			:open.sync="open" 
-			@close="toggle()"
-		>
-			<mu-appbar>
+      :open.sync="open" 
+      :docked.sync="docked" 
+      @close="toggle()"
+    >
+      <mu-appbar>
         <slot 
           name="close"
         >
           <mu-icon-button 
             title="Close Menu"
             slot="right" 
-            @click.native="click_item__close" 
+            @click.native="event_close" 
           >
             <mu-icon 
               value="close" 
             />
           </mu-icon-button>
         </slot>
-				<div 
+        <div 
           class="logo"
         >
-					<slot 
+          <slot 
             name="logo"
-          >
-						<mu-flat-button
-							slot="left"
-							:title="title"
-							tooltip="Go to Homepage"
-							tooltip-position="bottom-center"
-							to="/"
-						>
-							<!--
-							<img
-								src="/src/assets/img/SVG/logo.svg"
-								alt="CMWD"
-							/>
-							-->
-							<svg version="1.1" role="presentation" height="28" viewBox="0 0 165 35">
-								<path d="M92.4608157,34.7292984 L98.8629154,34.7292984 L98.8629154,23.3328799 L111.012598,34.7292984 L117.193867,34.7292984 L117.193867,4.22697099 L147.697931,4.22697099 C147.697931,4.22697099 160.203535,4.32690416 160.203535,17.4242053 C160.203535,17.4242053 160.407915,30.5215065 147.631631,30.5215065 L121.799909,30.5215065 L121.799909,34.7298031 L147.631631,34.7298031 C147.631631,34.7298031 164.934199,34.8489154 164.934199,17.4252148 C164.931707,0 147.629139,0 147.629139,0 L112.561903,0 L112.561903,30.5225159 L94.5574622,13.0190707 L94.5574622,30.5225159 L62.8610121,0 L56.5217221,0 L92.4608157,34.7292984 Z"></path>
-								<path d="M84.8223487,11.9352271 L72.4718882,6.22424882e-15 L66.0697885,6.22424882e-15 L66.0697885,11.3964185 L53.9206042,6.22424882e-15 L47.7393353,6.22424882e-15 L47.7393353,30.5028321 L17.2352719,30.5028321 C17.2352719,30.5028321 4.73066465,30.4039084 4.73066465,17.3066072 C4.73066465,17.3066072 4.52628399,4.20829662 17.302568,4.20829662 L43.13429,4.20829662 L43.13429,6.22424882e-15 L17.302568,6.22424882e-15 C17.302568,6.22424882e-15 0,-0.118607544 0,17.3055978 C0,34.7298031 17.302568,34.7292984 17.302568,34.7292984 L52.3698036,34.7292984 L52.3698036,4.2077919 L70.3742447,21.7112372 L70.3742447,4.2077919 L102.070196,34.7298031 L108.409486,34.7298031 L84.8223487,11.9352271 Z"></path>
-							</svg>
-						</mu-flat-button>
-					</slot>
-				</div>
-			</mu-appbar>
-			<mu-list 
-        @itemClick="click_item__link"
+          ></slot>
+        </div>
+      </mu-appbar>
+      <mu-list 
+        @itemClick="event_click__item"
       >
-				<mu-sub-header>
+        <mu-sub-header>
           <span>{{ title }}</span>
         </mu-sub-header>
         <mu-list
@@ -69,151 +55,213 @@
               v-if="item.switch" 
               slot="right" 
             />
-              <mu-list
-                v-if="item.children && item.children.length"
+            <mu-list
+              v-if="item.children && item.children.length"
+            >
+              <mu-list-item
+                :title="child.name"
+                v-if="child.name && child.route"
+                v-for="(child, idxChild) in item.children"
+                :key="idxItem + '-' + idxChild"
+                :to="child.route"
+                :tooltip="child.tooltip"
               >
-                <mu-list-item
-                  :title="child.name"
-                  v-if="child.name && child.route"
-                  v-for="(child, idxChild) in item.children"
-                  :key="idxItem"
-                  :to="item.route"
-                  :tooltip="item.tooltip"
+                <mu-icon 
+                  v-if="child.icon" 
+                  slot="left" 
+                  :value="child.icon"
+                />
+                <mu-switch 
+                  v-if="child.switch" 
+                  slot="right" 
+                />
+                <mu-list
+                  v-if="child.children && child.children.length"
                 >
-                  <mu-icon 
-                    v-if="child.icon" 
-                    slot="left" 
-                    :value="child.icon"
-                  />
-                  <mu-switch 
-                    v-if="child.switch" 
-                    slot="right" 
-                  />
-                </mu-list-item>
-              </mu-list>
+                  <mu-list-item
+                    :title="child.children.name"
+                    v-if="child.children.name && child.children.route"
+                    v-for="(grandChild, idxGrandchild) in child.children"
+                    :key="idxChild + '-' + idxGrandchild"
+                    :to="grandChild.route"
+                    :tooltip="grandChild.tooltip"
+                  >
+                    <mu-icon 
+                      v-if="grandChild.icon" 
+                      slot="left" 
+                      :value="grandChild.icon"
+                    />
+                    <mu-switch 
+                      v-if="grandChild.switch" 
+                      slot="right" 
+                    />
+                    <!-- Great Grandchildren -->
+                    <mu-list
+                      v-if="grandChild.children && grandChild.children.length"
+                    >
+                      <mu-list-item
+                        :title="grandChild.children.name"
+                        v-if="grandChild.children.name && grandChild.children.route"
+                        v-for="(greatgrandChild, idxGreatgrandChild) in grandChild.children"
+                        :key="idxChild + '-' + idxGrandchild"
+                        :to="greatgrandChild.route"
+                        :tooltip="greatgrandChild.tooltip"
+                      >
+                        <mu-icon 
+                          v-if="greatgrandChild.icon" 
+                          slot="left" 
+                          :value="greatgrandChild.icon"
+                        />
+                        <mu-switch 
+                          v-if="greatgrandChild.switch" 
+                          slot="right" 
+                        />
+                      </mu-list-item>
+                    </mu-list>
+                    <!-- //GreatGrandchildren -->
+                  </mu-list-item>
+                </mu-list>
+              </mu-list-item>
+            </mu-list>
           </mu-list-item>
         </mu-list>
-			</mu-list>
-		</mu-drawer>
+      </mu-list>
+    </mu-drawer>
+  </aside>
 </template>
 <script>
 export default {
 	name: 'cmwd-sidebar',
+	components: {
+		SidebarItem: {
+			template: ``
+		}
+	},
 	methods: {
-		click_item__close() {
-			this.close()
-		},
-		click_item__link() {
-			if (this.docked) this.toggle()
-		},
 		toggle(bool) {
 			bool = bool ? bool : !this.open
 			this.open = bool
 		},
-		open() {
-			this.toggle(true)
+		event_click__item() {
+			if (this.docked) this.toggle()
 		},
-		close() {
+		event_open() {
+			this.toggle(true)
+			this.$emit('open')
+		},
+		event_close() {
 			this.toggle(false)
+			this.$emit('close')
+		},
+		go(path) {
+			if (path) this.$router.push(path)
 		}
 	},
 	data() {
 		return {
+			theme: 'default',
+			slug: 'cmwd-tools',
+			title: 'CMWD Tools',
+			subtitle: '',
 			loading: false,
 			open: true,
 			docked: true,
-			title: 'CMWD Tools',
-			subtitle: 'eCommerce, Marketing, Web Development & Design',
-			items: {
-				ecommerce: {
+			overlay: false,
+			position: 'left', //right
+			items: [
+				{
 					route: { path: '#/ecommerce' },
 					name: 'eCommerce',
-					icon: '',
-					tooltip: 'Coming Soon',
+					icon: 'store',
+					tooltip: 'Coming Soon.',
 					disabled: true
 				},
-				marketing: {
+				{
 					route: { path: '#/marketing' },
 					name: 'Marketing',
-					tooltip: 'Coming Soon',
+					icon: 'show_chart',
+					tooltip: 'Coming Soon.',
 					disabled: true
 				},
-				webdev: {
+				{
 					route: { path: '/webdev' },
 					name: 'Web Development',
-					icon: '',
-					children: {
-						tools: {
+					icon: 'mouse',
+					children: [
+						{
 							route: { path: '#/webdev/tools' },
 							name: 'Tools',
 							icon: 'filter_list',
-							children: {
-								devices: {
+							children: [
+								{
 									route: { path: '/webdev/tools/devices' },
 									name: 'Devices',
 									icon: 'devices_other',
 									switch: true
 								},
-								api: {
+								{
 									route: { path: '/webdev/tools/api' },
 									name: 'API',
 									icon: 'dns',
 									switch: true
 								},
-								snippets: {
+								{
 									route: { path: '/webdev/tools/code-snippets' },
 									name: 'Code Snippets',
 									icon: 'code'
 								},
-								cms: {
+								{
 									route: { path: '/webdev/tools/cms' },
 									name: 'CMS',
-									icon: 'gesture',
-									children: {
-										wordpress: {
+									icon: 'view_compact',
+									children: [
+										{
 											route: { path: '/webdev/tools/cms/wordpress' },
-											name: 'Wordpress'
+											name: 'Wordpress',
+											icon: 'view_compact'
 										}
-									}
+									]
 								}
-							}
+							]
 						}
-					}
+					]
 				},
-				design: {
+				{
 					route: { path: '/design' },
 					name: 'Design',
 					icon: 'opacity',
-					children: {
-						tools: {
+					children: [
+						{
 							route: { path: '#/design/tools' },
 							name: 'Tools',
 							icon: 'filter_list',
-							children: {
-								icons: {
+							children: [
+								{
 									route: { path: '/design/tools/icons' },
-									name: 'Icons'
+									name: 'Icons',
+									icon: 'ac_unit'
 								},
-								colors: {
+								{
 									route: { path: '/design/tools/colors' },
-									name: 'Colors'
+									name: 'Colors',
+									icon: 'palette'
 								}
-							}
+							]
 						}
-					}
+					]
 				},
-				activity: {
+				{
 					route: { path: '/activity' },
 					name: 'Activity',
 					icon: 'weekend',
 					switch: true
 				},
-				settings: {
+				{
 					route: { path: '/settings' },
 					name: 'Settings',
 					icon: 'tune'
 				}
-			}
+			]
 		}
 	}
 }

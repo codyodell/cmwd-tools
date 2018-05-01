@@ -1,16 +1,21 @@
-/** API Class **/
+const Defaults = {
+	baseURL: 'https://www.codyodell.net/',
+	timeout: 5000,
+	headers: {
+		Accept: 'application/json',
+		'Content-Type': 'application/json',
+		'X-Requested-With': 'XMLHttpRequest'
+	}
+}
+
 class ApiService {
-	/** Vue $api Prototype **/
 	constructor(options = OPTIONS) {
-		this.$http = axios.create({
-			baseURL: options.baseUrl,
-			timeout: 5000,
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-				'X-Requested-With': 'XMLHttpRequest' //IMPORTANT!!
-			}
-		})
+		const $request = {
+			baseURL: Defaults.baseUrl || options.baseUrl,
+			timeout: Defaults.timeout,
+			headers: Defaults.headers
+		}
+		this.$http = axios.create($request)
 		this.$events = Events
 		this.$cookies = Cookies
 		this.$store = options.store

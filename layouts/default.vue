@@ -2,15 +2,17 @@
   <div 
 		:data-slug="slug" 
 		:data-layout="layout"
-		:class="{'sidebar-open': sidebar_open, 'loading': loading}"
 	>
 		<cmwd-header />
-		<cmwd-sidebar />
+		<cmwd-sidebar>
+			<cmwd-logo slot="logo" />
+		</cmwd-sidebar>
 		<cmwd-content />
 		<cmwd-footer />
   </div>  	
 </template>
 <script>
+import CmwdLogo from '/components/Logo.vue'
 import CmwdHeader from '/components/Header.vue'
 import CmwdSidebar from '/components/Sidebar.vue'
 import CmwdContent from '/components/Content.vue'
@@ -19,26 +21,34 @@ import CmwdFooter from '/components/Footer.vue'
 export default {
 	name: 'layout-default',
 	components: {
+		CmwdLogo,
 		CmwdHeader,
 		CmwdSidebar,
 		CmwdContent,
 		CmwdFooter
 	},
-	methods: {
-		toggle_sidebar(flag) {
-			this.sidebar_open = !this.sidebar_open
-			this.sidebar_docked = !flag
+	watch: {
+		path: () => {
+			console.log('Layouts > Default > Watch > Path')
 		}
 	},
 	data() {
 		return {
 			layout: 'default',
-			slug: 'overview',
-			title: 'eCommerce, Marketing, Web Development and Design Tools',
-			subtitle: 'CMWD Tools',
-			sidebar_open: true,
-			sidebar_docked: true,
-			loading: false
+			theme: 'default',
+			slug: 'cmwd-tools',
+			title: 'CMWD Tools',
+			subtitle: 'eCommerce, Marketing, Web Development and Design Tools',
+			path: [
+				{
+					route: { path: '/' },
+					name: 'CMWD Tools'
+				},
+				{
+					route: { path: '/overview' },
+					name: 'Overview'
+				}
+			]
 		}
 	}
 }
