@@ -4,30 +4,30 @@
     :to="route"
     :key="idx"
     :tooltip="tooltip"
-    :disabled="is_disabled"
+    :disabled="disabled"
+    :open="true"
     :toggleNested="show_toggle"
-    :disableRipple="!show_toggle"
+    :disableRipple="has_children"
+    :class="{'open': is_open, 'has_children': has_children}"
   >
-    <mu-icon 
-      v-if="icon" 
+    <mu-icon
       :value="icon"
       slot="left" 
     />
     <mu-switch 
-      v-if="show_switch" 
+      v-if="show_switch === true" 
       slot="right" 
     />
-    <slot 
-      name="children"
-    >
+    <slot>
       <navigation
         items="children"
         slot="nested"
-      />
+      ></navigation>
     </slot>
   </mu-list-item>
 </template>
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import Navigation from './Navigation.vue'
 
 export default {
@@ -83,6 +83,17 @@ export default {
 				return false
 			}
 		},
+		item: {
+			type: [Boolean, Object],
+			default: () => {
+				return {
+					route: { path: '/' },
+					name: 'Home',
+					icon: 'home',
+					children: []
+				}
+			}
+		},
 		children: {
 			type: [Boolean, Array],
 			default: () => {
@@ -106,7 +117,10 @@ export default {
 		},
 		// Show/Hide Elements
 		show_toggle() {
-			return this.show_item && this.has_children
+			return this.has_children
+		},
+		show_icon() {
+			return !this.is_empty(this.icon)
 		},
 		show_item() {
 			let is_valid = true
@@ -123,7 +137,11 @@ export default {
 		},
 		is_first_item() {
 			return this.idx === 0
-		}
+		},
+		is_open() {
+			return true //this.is_first_item
+		} /*,
+		...mapGetters({})*/
 	},
 	methods: {
 		is_empty(test) {
@@ -138,12 +156,20 @@ export default {
 			return is_string && !this.is_empty(test)
 		},
 		in_array(Needle, Haystack) {
-			return Need in Haystack
+			return Needle in Haystack
 		},
 		event_click__item() {
 			console.log('event_click__item', this.is_open)
-			if (this.is_docked) this.event_close()
-		}
+			if (this.is_docked) {
+				this.toggleSidebar(false)
+			}
+		},
+		...mapActions({
+			toggleSidebar: 'toggleSidebar'
+		})
+	},
+	mounted() {
+		console.log('Navigation > Item', this, this.item)
 	}
 }
 </script>

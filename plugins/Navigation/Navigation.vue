@@ -1,18 +1,21 @@
 <template>
   <nav>
     <mu-list>
-      <navigation-item
-        v-for="(itemNav, idxItemNav) in items"
-        :key="idxItemNav"
-        :idx="idxItemNav"
-        :name="itemNav.name"
-        :route="itemNav.route"
-        :icon="itemNav.icon"
-        :tooltip="itemNav.tooltip"
-        :children="itemNav.children"
-        :show_switch="itemNav.show_switch"
-        :disabled="itemNav.disabled"
-      ></navigation-item>
+      <slot>
+        <navigation-item
+          v-for="(item, idxItem) in items"
+          :item="item"
+          :key="idxItem"
+          :idx="idxItem"
+          :name="item.name"
+          :route="item.route"
+          :icon="item.icon"
+          :tooltip="item.tooltip"
+          :children="item.children"
+          :show_switch="item.show_switch"
+          :disabled="item.disabled"
+        ></navigation-item>
+      </slot>
     </mu-list>
     <mu-raised-button 
       v-if="!show_items"
@@ -54,7 +57,9 @@ export default {
 			return this.items && this.items.length
 		},
 		go(path) {
-			if (path && path.length) this.$router.push(path)
+			if (path && path.length) {
+				this.$router.push(path)
+			}
 		}
 	}
 }

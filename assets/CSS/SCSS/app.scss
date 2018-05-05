@@ -11,4 +11,11 @@ $width-sidebar: $width-xs;
 	#sidebar.open + .content {
 		margin-left: $width-sidebar;
 	}
+	.router-link-exact-active {
+		background-color: $color-accent;
+		color: $color-text-ui;
+	}
+	.router-link-active {
+		text-decoration: underline;
+	}
 }

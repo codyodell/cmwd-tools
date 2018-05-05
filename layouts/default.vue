@@ -3,12 +3,25 @@
 		:data-slug="slug" 
 		:data-layout="layout"
 	>
-		<cmwd-header />
-		<cmwd-sidebar>
-			<cmwd-logo slot="logo" />
-		</cmwd-sidebar>
-		<cmwd-content />
-		<cmwd-footer />
+		<div
+			class="content"
+		>
+			<div 
+				class="content-left"
+			>
+				<cmwd-sidebar>
+					<cmwd-logo slot="logo" />
+				</cmwd-sidebar>
+			</div>
+		</div>
+		<main
+			role="main"
+			class="content-right"
+		>
+			<cmwd-header />
+			<cmwd-content />
+			<cmwd-footer />
+		</main>
   </div>  	
 </template>
 <script>

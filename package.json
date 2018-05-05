@@ -12,7 +12,7 @@
 		"vue-loading-overlay": "2.0.4",
 		"vue-router": "3.0.1",
 		"vuex": "3.0.1",
-		"vuex-rest-api": "2.7.0",
-		"vuex-router-sync": "5.0.0"
+		"vuex-router-sync": "5.0.0",
+		"x-resources": "1.0.5"
 	}
 }

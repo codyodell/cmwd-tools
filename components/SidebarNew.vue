@@ -3,21 +3,22 @@
     :id="htmlAttrID"
     :is_open.sync="is_open"
     :is_docked.sync="is_docked"
-    :is_loading.sync="is_sidebar_loading"
-    :class="{'open': is_open, 'docked': is_docked, 'loading': is_sidebar_loading}"
+    :is_loading.sync="is_loading || is_sidebar_loading"
+    :class="{'open': is_open, 'docked': is_docked, 'loading': (is_loading || is_sidebar_loading)}"
   >
-    
     <mu-drawer
       :open.sync="is_open" 
       :docked.sync="is_docked" 
       @close="event_close()"
     >
       <!-- Header -->
-      <mu-appbar>
-        <!-- Close/Open Button -->
+      <mu-appbar
+        title="title"
+      >
+        <!-- Close Button -->
         <mu-icon-button 
           slot="right" 
-          :title="title_loading" 
+          :title="title_close" 
         >
           <mu-icon 
             value="close" 
@@ -25,32 +26,32 @@
         </mu-icon-button>
         <!-- Logo -->
         <span 
+          v-if="$slots.logo"
           class="logo"
         >
           <slot 
             name="logo"
-          >
-            <h4
-              v-if="!is_empty(title)"
-            >
-              <span
-                v-html="title"
-              ></span>
-            </h4>
-          </slot>
+          ></slot>
         </span>
         <!-- Loading -->
         <loading 
-          :active.sync="is_sidebar_loading"
+          :active.sync="show_loading"
         />
       </mu-appbar>
       <!-- Body -->
       <div 
         class="body"
       >
-        <navigation
-          :items="items"
-        ></navigation>
+        <mu-linear-progress
+          v-show="is_loading"
+          size="14"
+          color="rgba(255, 255, 255, .366)"
+        />
+        <slot>
+          <navigation
+            :items="items"
+          ></navigation>
+        </slot>
       </div>
     </mu-drawer>
   </aside>
@@ -77,6 +78,9 @@ export default {
 		})
 	},
 	methods: {
+		show_loading() {
+			return this.is_loading || this.is_sidebar_loading
+		},
 		show_toggle(objItem) {
 			return this.show_item(objItem) && this.has_children(objItem)
 		},
@@ -114,7 +118,7 @@ export default {
 		},
 		event_toggle() {
 			this.toggleSidebar()
-			store.commit('TOGGLE_SIDEBAR')
+			this.store.commit('TOGGLE_SIDEBAR')
 			return this.is_open
 		},
 		event_open() {
