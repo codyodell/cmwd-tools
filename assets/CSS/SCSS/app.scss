@@ -2,17 +2,13 @@ $width-sidebar: $width-xs;
 
 /*=== APP ===*/
 
-body {
+#app {
 	font-size: $font-size-base;
 	line-height: $vertical-rhythm; //1.47059;
 	font-weight: $font-weight-normal;
 	letter-spacing: -0.022em;
 	font-family: $font-default;
-}
-#app {
-	.content {
-		&.drawer-open {
-			margin-left: $width-xs;
-		}
+	#sidebar.open + .content {
+		margin-left: $width-sidebar;
 	}
 }

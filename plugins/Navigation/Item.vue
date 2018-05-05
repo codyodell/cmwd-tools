@@ -1,6 +1,5 @@
 <template>
   <mu-list-item
-    v-if="show_item"
     :title="name"
     :to="route"
     :key="idx"
@@ -29,7 +28,12 @@
   </mu-list-item>
 </template>
 <script>
+import Navigation from './Navigation.vue'
+
 export default {
+	components: {
+		Navigation
+	},
 	props: {
 		idx: {
 			type: [Number, String],
@@ -102,11 +106,11 @@ export default {
 		},
 		// Show/Hide Elements
 		show_toggle() {
-			return this.show_item() && this.has_children()
+			return this.show_item && this.has_children
 		},
 		show_item() {
 			let is_valid = true
-			if (this.is_empty(this.name) || !this.is_link(this.route)) {
+			if (this.is_empty(this.name) || !this.is_link) {
 				is_valid = false
 			}
 			return is_valid
@@ -115,7 +119,7 @@ export default {
 			return !this.is_empty(this.route) && !this.is_empty(this.route.path)
 		},
 		is_disabled() {
-			return this.is_bool(this.disabled) ? this.disabled : !this.is_link()
+			return this.is_bool(this.disabled) ? this.disabled : !this.is_link
 		},
 		is_first_item() {
 			return this.idx === 0

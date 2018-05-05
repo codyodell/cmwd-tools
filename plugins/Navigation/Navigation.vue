@@ -2,23 +2,23 @@
   <nav>
     <mu-list>
       <navigation-item
-        v-if="show_items"
         v-for="(itemNav, idxItemNav) in items"
         :key="idxItemNav"
         :idx="idxItemNav"
         :name="itemNav.name"
         :route="itemNav.route"
+        :icon="itemNav.icon"
+        :tooltip="itemNav.tooltip"
         :children="itemNav.children"
+        :show_switch="itemNav.show_switch"
+        :disabled="itemNav.disabled"
       ></navigation-item>
-      <mu-list-item 
-        v-else
-      >
-        <mu-raised-button 
-          icon="info_outline"
-          title="No Nav Items"
-        />
-      </mu-list-item>
     </mu-list>
+    <mu-raised-button 
+      v-if="!show_items"
+      icon="info_outline"
+      title="No Items."
+    />
   </nav>
 </template>
 <script>
@@ -49,12 +49,10 @@ export default {
 			}
 		}
 	},
-	computed: {
+	methods: {
 		show_items() {
 			return this.items && this.items.length
-		}
-	},
-	methods: {
+		},
 		go(path) {
 			if (path && path.length) this.$router.push(path)
 		}
