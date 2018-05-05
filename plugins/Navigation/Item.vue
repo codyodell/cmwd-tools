@@ -5,7 +5,7 @@
     :key="idx"
     :tooltip="tooltip"
     :disabled="is_disabled"
-    :toggleNested="show_toggle"
+    
     :disableRipple="!show_toggle"
     :class="{'open': is_open, 'has_children': has_children}"
   >

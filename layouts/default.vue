@@ -20,6 +20,7 @@
 				<cmwd-footer />
 			</main>
   	</div>
+		<mu-back-top/>
 	</div>
 </template>
 <script>

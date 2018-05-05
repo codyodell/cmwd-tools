@@ -2,9 +2,12 @@
 	"name": "cmwd-tools",
 	"version": "0.0.1",
 	"description": "Tools for Web Developers",
-	"keywords": ["vuex", "webpack", "vue", "muse ui", "theme"],
+	"keywords": [],
 	"main": "index.js",
 	"dependencies": {
+		"@apicase/adapter-fetch": "0.13.0",
+		"@apicase/core": "0.14.2",
+		"@apicase/services": "0.7.2",
 		"es6-promise": "4.2.4",
 		"muse-ui": "2.1.0",
 		"vue": "2.5.2",

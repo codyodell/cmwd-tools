@@ -9,19 +9,29 @@ $width-sidebar: $width-xs;
 	letter-spacing: -0.022em;
 	font-family: $font-default;
 	.content {
+		.mu-drawer {
+			width: $width-sidebar;
+			.mu-item {
+				padding-top: 28px;
+				padding-bottom: 28px;
+			}
+		}
 		.content-left.open + .content-right {
 			margin-left: $width-sidebar;
 		}
+		.content--main {
+			padding: 0.66em 1.166em 3.33em 1.166em;
+		}
 	}
-	.logo {
+	.logo a {
 		text-align: center;
 		line-height: 0;
 	}
-	.router-link-exact-active > a {
+	.router-link-exact-active {
 		background-color: $color-accent;
 		color: $color-text-ui;
 	}
-	.router-link-active > a {
+	.router-link-active {
 		text-decoration: underline;
 	}
 }
