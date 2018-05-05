@@ -4,10 +4,9 @@
     :to="route"
     :key="idx"
     :tooltip="tooltip"
-    :disabled="disabled"
-    :open="true"
+    :disabled="is_disabled"
     :toggleNested="show_toggle"
-    :disableRipple="has_children"
+    :disableRipple="!show_toggle"
     :class="{'open': is_open, 'has_children': has_children}"
   >
     <mu-icon
@@ -15,20 +14,14 @@
       slot="left" 
     />
     <mu-switch 
-      v-if="show_switch === true" 
+      v-if="show_switch" 
       slot="right" 
     />
-    <slot>
-      <navigation
-        items="children"
-        slot="nested"
-      ></navigation>
-    </slot>
+    <slot></slot>
   </mu-list-item>
 </template>
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import Navigation from './Navigation.vue'
+import Navigation from '/plugins/Navigation/Navigation.vue'
 
 export default {
 	components: {
@@ -117,7 +110,7 @@ export default {
 		},
 		// Show/Hide Elements
 		show_toggle() {
-			return this.has_children
+			return this.is_link && this.has_children
 		},
 		show_icon() {
 			return !this.is_empty(this.icon)
@@ -140,8 +133,7 @@ export default {
 		},
 		is_open() {
 			return true //this.is_first_item
-		} /*,
-		...mapGetters({})*/
+		}
 	},
 	methods: {
 		is_empty(test) {
@@ -161,15 +153,12 @@ export default {
 		event_click__item() {
 			console.log('event_click__item', this.is_open)
 			if (this.is_docked) {
-				this.toggleSidebar(false)
+				//this.toggleSidebar(false)
 			}
-		},
-		...mapActions({
-			toggleSidebar: 'toggleSidebar'
-		})
+		}
 	},
 	mounted() {
-		console.log('Navigation > Item', this, this.item)
+		console.log('Navigation > Item', this, this.children)
 	}
 }
 </script>

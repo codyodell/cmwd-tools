@@ -6,23 +6,21 @@
 		<div
 			class="content"
 		>
-			<div 
-				class="content-left"
+			<cmwd-sidebar>
+				<cmwd-logo 
+					slot="logo" 
+				/>
+			</cmwd-sidebar>
+			<main
+				role="main"
+				class="content-right"
 			>
-				<cmwd-sidebar>
-					<cmwd-logo slot="logo" />
-				</cmwd-sidebar>
-			</div>
-		</div>
-		<main
-			role="main"
-			class="content-right"
-		>
-			<cmwd-header />
-			<cmwd-content />
-			<cmwd-footer />
-		</main>
-  </div>  	
+				<cmwd-header />
+				<cmwd-content />
+				<cmwd-footer />
+			</main>
+  	</div>
+	</div>
 </template>
 <script>
 import CmwdLogo from '/components/Logo.vue'

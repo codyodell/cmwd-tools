@@ -26,6 +26,15 @@
 					primary
 				/>
 			</mu-list-item>
+			<mu-list-item
+				slot="right"
+			>
+				<mu-icon-button>
+					<mu-icon
+						value="search"
+					></mu-icon>
+				</mu-icon-button>
+			</mu-list-item>
 		</mu-appbar>
   </header>
 </template>
@@ -49,12 +58,13 @@ export default {
 	},
 	computed: {
 		...mapGetters({
-			is_loading: 'is_loading'
+			is_loading: 'is_loading',
+			is_header_loading: 'is_header_loading'
 		})
 	},
 	methods: {
 		toggle() {
-			this.toggleSidebar()
+			this.$store.commit('toggleSidebar')
 		},
 		...mapActions({
 			toggleSidebar: 'toggleSidebar'

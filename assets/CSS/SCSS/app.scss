@@ -8,14 +8,20 @@ $width-sidebar: $width-xs;
 	font-weight: $font-weight-normal;
 	letter-spacing: -0.022em;
 	font-family: $font-default;
-	#sidebar.open + .content {
-		margin-left: $width-sidebar;
+	.content {
+		.content-left.open + .content-right {
+			margin-left: $width-sidebar;
+		}
 	}
-	.router-link-exact-active {
+	.logo {
+		text-align: center;
+		line-height: 0;
+	}
+	.router-link-exact-active > a {
 		background-color: $color-accent;
 		color: $color-text-ui;
 	}
-	.router-link-active {
+	.router-link-active > a {
 		text-decoration: underline;
 	}
 }
