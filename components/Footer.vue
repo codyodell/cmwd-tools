@@ -1,5 +1,7 @@
 <template>
-  <footer>
+  <footer 
+    id="footer"
+  >
     <mu-appbar
       title="CMWD Tools"
     >

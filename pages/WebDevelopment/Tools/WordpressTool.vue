@@ -7,7 +7,7 @@
 			:subtitle="subtitle"
 		></page-header>
 		<mu-content-block>
-      <p>Settings content.</p>
+      <p>Wordpress tool content.</p>
     </mu-content-block>
 	</div>
 </template>
@@ -20,9 +20,9 @@ export default {
 	},
 	data() {
 		return {
-			slug: 'settings',
-			title: 'Settings',
-			subtitle: ''
+			slug: 'wordpress-tool',
+			title: 'Wordpress Tool',
+			subtitle: 'CMWD > Webdev > Tools'
 		}
 	}
 }

@@ -7,7 +7,7 @@
 			:subtitle="subtitle"
 		></page-header>
 		<mu-content-block>
-      <p>Settings content.</p>
+      <p>Coming soon.</p>
     </mu-content-block>
 	</div>
 </template>
@@ -20,9 +20,9 @@ export default {
 	},
 	data() {
 		return {
-			slug: 'settings',
-			title: 'Settings',
-			subtitle: ''
+			slug: 'cmwd-marketing-tools',
+			title: 'Tools',
+			subtitle: 'CMWD > Marketing'
 		}
 	}
 }

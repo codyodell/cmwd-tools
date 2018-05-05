@@ -1,9 +1,11 @@
 <template>
   <main 
-    class="content"
+    :class="class_main"
     role="main"
   >
-    <transition name="fade">
+    <transition 
+      name="fade"
+    >
       <slot>
         <router-view />
       </slot>
@@ -12,9 +14,11 @@
 </template>
 <script>
 export default {
-	name: 'cmwd-content'
+	name: 'cmwd-content',
+	data() {
+		return {
+			class_main: 'content'
+		}
+	}
 }
 </script>
-<style>
-
-</style>

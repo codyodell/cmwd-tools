@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-	mode: 'history',
+	//mode: 'history',
 	routes: [
 		{
 			path: '/',
@@ -12,38 +12,61 @@ export default new Router({
 			component: () => import('/pages/Overview.vue')
 		},
 		{
-			path: '/api-tool',
-			name: 'API Tool',
-			component: () => import('/pages/Api.vue'),
+			path: '/ecommerce',
+			name: 'eCommerce'
+		},
+		{
+			path: '/marketing',
+			name: 'Marketing'
+		},
+		{
+			path: '/webdev',
+			name: 'Web Development',
+			redirect: '/webdev/tools',
 			children: [
 				{
-					path: '/api/requests',
-					name: 'Requests',
-					component: () => import('/pages/Api.vue')
-				},
-				{
-					path: '/api/endpoints',
-					name: 'Endpoints',
-					component: () => import('/pages/Api.vue')
+					path: '/webdev/tools',
+					name: 'Webdev Tools',
+					component: () => import('/pages/WebDevelopment/Tools.vue'),
+					children: [
+						{
+							path: '/webdev/tools/api-tool',
+							name: 'API Tool',
+							component: () => import('/pages/WebDevelopment/Tools/ApiTool.vue')
+						},
+						{
+							path: '/webdev/tools/wordpress-tool',
+							name: 'Wordpress Tool',
+							component: () =>
+								import('/pages/WebDevelopment/Tools/WordpressTool.vue')
+						}
+					]
 				}
 			]
 		},
 		{
-			path: '/wp',
-			name: 'Wordpress',
-			component: () => import('/pages/Wordpress.vue'),
+			path: '/design',
+			name: 'Design',
+			redirect: '/design/tools',
 			children: [
 				{
-					path: '/wp/posts',
-					name: 'Posts',
-					component: () => import('/pages/Wordpress.vue')
+					path: '/design/tools',
+					name: 'Design Tools',
+					component: () => import('/pages/Design/Tools.vue'),
+					children: [
+						{
+							path: '/design/tools/color-tool',
+							name: 'Color Tool',
+							component: () => import('/pages/Design/Tools/ColorTool.vue')
+						},
+						{
+							path: '/design/tools/icon-tool',
+							name: 'Icon Tool',
+							component: () => import('/pages/Design/Tools/IconTool.vue')
+						}
+					]
 				}
 			]
-		},
-		{
-			path: '/muse-ui',
-			name: 'Muse UI',
-			component: () => import('/pages/MuseUI.vue')
 		},
 		{
 			path: '/settings',

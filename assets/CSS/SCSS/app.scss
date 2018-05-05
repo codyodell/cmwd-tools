@@ -10,7 +10,7 @@ body {
 	font-family: $font-default;
 }
 #app {
-	> [role='main'] {
+	.content {
 		&.drawer-open {
 			margin-left: $width-xs;
 		}

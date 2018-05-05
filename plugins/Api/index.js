@@ -1,8 +1,11 @@
 import Vue from 'vue'
-import Api from 'Api'
+import ApiService from './services/api.js'
 
-export default {
-	install(Vue, options) {
-		Vue.prototype.$api = Api
+const api = {
+	install: (Vue, options) => {
+		Vue.prototype.$api = new ApiService(options)
+		Vue.prototype.$api.log('ApiService:installed', options)
 	}
 }
+
+export default api

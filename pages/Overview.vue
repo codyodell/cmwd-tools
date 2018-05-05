@@ -1,15 +1,13 @@
 <template>
-	<div>
-		<mu-sub-header>{{ subtitle }}</mu-sub-header>
+	<div
+		:data-slug="slug"
+	>
+		<page-header
+			:title="title"
+			:subtitle="subtitle"
+		></page-header>
 		<mu-content-block>
 			<mu-row>
-				<mu-col
-					width="100"
-				>
-					<h1>
-						<span>{{ title }}</span>
-					</h1>
-				</mu-col>
 				<mu-col
 					width="100"
 					desktop="50"
@@ -45,8 +43,8 @@
 							</mu-avatar>
 						</mu-card-title>
 						<mu-card-actions>
-							<mu-flat-button label="Endpoints"/>
-							<mu-flat-button label="Requests"/>
+							<mu-flat-button label="Endpoints" icon="https" />
+							<mu-flat-button label="Requests" icon="https" />
 						</mu-card-actions>
 					</mu-card>
 				</mu-col>
@@ -55,19 +53,19 @@
 	</div>
 </template>
 <script>
-import Api from '/plugins/Api'
-import Wordpress from '/plugins/Wordpress'
+import api from '/plugins/Api'
+import PageHeader from '/components/PageHeader'
 
 export default {
 	components: {
-		Api,
-		Wordpress
+		api,
+		PageHeader
 	},
 	data() {
 		return {
-			slug: 'cmwd-tools',
-			title: 'CMWD Tools',
-			subtitle: 'https://www.codyodell.net/'
+			slug: 'cmwd-tools-overview',
+			title: 'Overview',
+			subtitle: 'CMWD > Tools'
 		}
 	}
 }

@@ -14,7 +14,7 @@
 <script>
 import CmwdLogo from '/components/Logo.vue'
 import CmwdHeader from '/components/Header.vue'
-import CmwdSidebar from '/components/Sidebar.vue'
+import CmwdSidebar from '/components/SidebarNew.vue'
 import CmwdContent from '/components/Content.vue'
 import CmwdFooter from '/components/Footer.vue'
 
