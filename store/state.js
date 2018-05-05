@@ -67,38 +67,31 @@ const state = {
 						icon: 'mouse',
 						children: [
 							{
-								route: { path: '/webdev/tools' },
-								name: 'Tools',
-								icon: 'filter_list',
+								route: { path: '/webdev/tools/devices' },
+								name: 'Devices',
+								icon: 'devices_other',
+								show_switch: true
+							},
+							{
+								route: { path: '/webdev/tools/api' },
+								name: 'API',
+								icon: 'dns',
+								show_switch: true
+							},
+							{
+								route: { path: '/webdev/tools/code-snippets' },
+								name: 'Code Snippets',
+								icon: 'code'
+							},
+							{
+								route: { path: '/webdev/tools/cms' },
+								name: 'CMS',
+								icon: 'view_compact',
 								children: [
 									{
-										route: { path: '/webdev/tools/devices' },
-										name: 'Devices',
-										icon: 'devices_other',
-										switch: true
-									},
-									{
-										route: { path: '/webdev/tools/api' },
-										name: 'API',
-										icon: 'dns',
-										switch: true
-									},
-									{
-										route: { path: '/webdev/tools/code-snippets' },
-										name: 'Code Snippets',
-										icon: 'code'
-									},
-									{
-										route: { path: '/webdev/tools/cms' },
-										name: 'CMS',
-										icon: 'view_compact',
-										children: [
-											{
-												route: { path: '/webdev/tools/cms/wordpress' },
-												name: 'Wordpress',
-												icon: 'view_compact'
-											}
-										]
+										route: { path: '/webdev/tools/cms/wordpress' },
+										name: 'Wordpress',
+										icon: 'view_compact'
 									}
 								]
 							}
@@ -110,21 +103,14 @@ const state = {
 						icon: 'opacity',
 						children: [
 							{
-								route: { path: '/design/tools' },
-								name: 'Tools',
-								icon: 'filter_list',
-								children: [
-									{
-										route: { path: '/design/tools/icons' },
-										name: 'Icons',
-										icon: 'ac_unit'
-									},
-									{
-										route: { path: '/design/tools/colors' },
-										name: 'Colors',
-										icon: 'palette'
-									}
-								]
+								route: { path: '/design/tools/icons' },
+								name: 'Icons',
+								icon: 'ac_unit'
+							},
+							{
+								route: { path: '/design/tools/colors' },
+								name: 'Colors',
+								icon: 'palette'
 							}
 						]
 					},
@@ -142,7 +128,7 @@ const state = {
 								route: { path: '/settings/activity' },
 								name: 'Show Activity Monitor',
 								icon: 'track_changes',
-								switch: true
+								show_switch: true
 							}
 						]
 					}

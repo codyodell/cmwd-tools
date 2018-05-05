@@ -1,17 +1,26 @@
 <template>
+  <!--
+  <mu-sub-header
+    v-if="subheader && !is_empty(name)"
+    v-html="name"
+  ></mu-sub-header>
+  -->
   <mu-list-item
+    inset
+    slot="nested"
     :title="name"
     :to="route"
     :key="idx"
     :tooltip="tooltip"
     :disabled="is_disabled"
-    
+    :toggleNested="has_children"
     :disableRipple="!show_toggle"
-    :class="{'open': is_open, 'has_children': has_children}"
+    :class="{'has_children': has_children, 'show_toggle': show_toggle}"
+    @click="event_click__item"
   >
     <mu-icon
+      slot="left"
       :value="icon"
-      slot="left" 
     />
     <mu-switch 
       v-if="show_switch" 
@@ -59,6 +68,12 @@ export default {
 			}
 		},
 		disabled: {
+			type: Boolean,
+			default: () => {
+				return false
+			}
+		},
+		subheader: {
 			type: Boolean,
 			default: () => {
 				return false
@@ -126,13 +141,14 @@ export default {
 			return !this.is_empty(this.route) && !this.is_empty(this.route.path)
 		},
 		is_disabled() {
-			return this.is_bool(this.disabled) ? this.disabled : !this.is_link
+			let is_disabled = false
+			if (!this.is_link || this.disabled) {
+				is_disabled = true
+			}
+			return is_disabled
 		},
 		is_first_item() {
 			return this.idx === 0
-		},
-		is_open() {
-			return true //this.is_first_item
 		}
 	},
 	methods: {
@@ -153,7 +169,7 @@ export default {
 		event_click__item() {
 			console.log('event_click__item', this.is_open)
 			if (this.is_docked) {
-				//this.toggleSidebar(false)
+				this.toggleSidebar(false)
 			}
 		}
 	},

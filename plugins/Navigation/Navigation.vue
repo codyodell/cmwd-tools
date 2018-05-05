@@ -1,61 +1,50 @@
 <template>
   <nav>
-    <mu-list
-      slot="nested"
-    >
-      <slot>
+    <mu-list>
+      <navigation-item
+        v-for="(item, idxItem) in items"
+        :item="item"
+        :key="idxItem"
+        :idx="idxItem"
+        :name="item.name"
+        :route="item.route"
+        :icon="item.icon"
+        :tooltip="item.tooltip"
+        :children="item.children"
+        :show_switch="item.show_switch"
+        :disabled="item.disabled"
+        :subheader="item.subheader"
+      >
         <navigation-item
-          v-for="(item, idxItem) in items"
-          :item="item"
-          :key="idxItem"
-          :idx="idxItem"
-          :name="item.name"
-          :route="item.route"
-          :icon="item.icon"
-          :tooltip="item.tooltip"
-          :children="item.children"
-          :show_switch="item.show_switch"
-          :disabled="item.disabled"
+          v-for="(itemChild, idxItemChild) in item.children"
+          :item="itemChild"
+          :key="[idxItem, idxItemChild].join('-')"
+          :idx="[idxItem, idxItemChild].join('-')"
+          :name="itemChild.name"
+          :route="itemChild.route"
+          :icon="itemChild.icon"
+          :tooltip="itemChild.tooltip"
+          :children="itemChild.children"
+          :show_switch="itemChild.show_switch"
+          :disabled="itemChild.disabled"
+          :subheader="itemChild.subheader"
         >
-          <mu-list
-            v-if="item.children && item.children.length"
-          >
-            <navigation-item
-              v-for="(itemChild, idxItemChild) in item.children"
-              :item="itemChild"
-              :key="idxItemChild"
-              :idx="idxItemChild"
-              :name="itemChild.name"
-              :route="itemChild.route"
-              :icon="itemChild.icon"
-              :tooltip="itemChild.tooltip"
-              :children="itemChild.children"
-              :show_switch="itemChild.show_switch"
-              :disabled="itemChild.disabled"
-            >
-              <mu-list
-                v-if="itemChild.children && itemChild.children.length"
-              >
-                <navigation-item
-                  v-for="(itemGrandChild, idxItemGrandChild) in itemChild.children"
-                  :item="itemGrandChild"
-                  :key="idxItemGrandChild"
-                  :idx="idxItemGrandChild"
-                  :name="itemGrandChild.name"
-                  :route="itemGrandChild.route"
-                  :icon="itemGrandChild.icon"
-                  :tooltip="itemGrandChild.tooltip"
-                  :children="itemGrandChild.children"
-                  :show_switch="itemGrandChild.show_switch"
-                  :disabled="itemGrandChild.disabled"
-                >
-                
-                </navigation-item>
-              </mu-list>
-            </navigation-item>
-          </mu-list>
+          <navigation-item
+            v-for="(itemGrandChild, idxItemGrandChild) in itemChild.children"
+            :item="itemGrandChild"
+            :key="idxItemGrandChild"
+            :idx="[idxItem, idxItemChild, idxItemGrandChild].join('-')"
+            :name="itemGrandChild.name"
+            :route="itemGrandChild.route"
+            :icon="itemGrandChild.icon"
+            :tooltip="itemGrandChild.tooltip"
+            :children="itemGrandChild.children"
+            :show_switch="itemGrandChild.show_switch"
+            :disabled="itemGrandChild.disabled"
+            :subheader="itemGrandChild.subheader"
+          ></navigation-item>
         </navigation-item>
-      </slot>
+      </navigation-item>
     </mu-list>
     <mu-raised-button 
       v-if="!show_items"
@@ -96,10 +85,12 @@ export default {
 		show_items() {
 			return this.items && this.items.length
 		},
-		go(path) {
-			if (path && path.length) {
-				this.$router.push(path)
-			}
+		has_children(objItem) {
+			return (
+				objItem &&
+				objItem.length &&
+				('children' in objItem && objItem.children.length)
+			)
 		}
 	}
 }

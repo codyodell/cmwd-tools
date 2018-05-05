@@ -33,7 +33,7 @@
         </span>
         <!-- Loading -->
         <loading 
-          :active.sync="is_loading"
+          :active.sync="show_loading"
         />
       </mu-appbar>
       <!-- Body -->
@@ -41,7 +41,7 @@
         class="body"
       >
         <mu-linear-progress
-          v-show="is_loading"
+          v-show="show_loading"
           color="#cdcdcd"
         />
         <slot>
@@ -66,6 +66,9 @@ export default {
 		Navigation
 	},
 	computed: {
+		show_loading() {
+			return this.is_loading || this.is_sidebar_loading
+		},
 		...mapGetters({
 			items: 'nav_items_sidebar',
 			is_open: 'is_sidebar_open',
@@ -75,9 +78,6 @@ export default {
 		})
 	},
 	methods: {
-		show_loading() {
-			return this.is_loading || this.is_sidebar_loading
-		},
 		// Boolean
 		has_children(objItem) {
 			return 'children' in objItem && !this.is_empty(objItem)

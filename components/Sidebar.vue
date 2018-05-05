@@ -7,8 +7,8 @@
     :class="{'open': is_open, 'docked': is_docked, 'loading': is_sidebar_loading}"
   >
     <mu-drawer
-      :open.sync="is_open" 
-      :docked.sync="is_docked" 
+      :open="is_open" 
+      :docked="is_docked" 
       @close="event_close()"
     >
       <!-- Header -->
@@ -126,7 +126,7 @@
                         :value="grandChild.icon"
                       />
                       <mu-switch 
-                        v-if="grandChild.switch" 
+                        v-if="grandChild.show_switch" 
                         slot="right" 
                       />
                       <!-- Items Level 4 -->

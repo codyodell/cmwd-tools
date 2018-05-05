@@ -1,4 +1,4 @@
-$width-sidebar: $width-xs;
+$width-sidebar: 16rem;
 
 /*=== APP ===*/
 
@@ -14,6 +14,9 @@ $width-sidebar: $width-xs;
 			.mu-item {
 				padding-top: 28px;
 				padding-bottom: 28px;
+			}
+			.mu-item.show-left {
+				padding-left: 56px;
 			}
 		}
 		.content-left.open + .content-right {
