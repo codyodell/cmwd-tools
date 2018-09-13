@@ -1,19 +1,35 @@
-import * as types from './types'
-
 export default {
-	toggleLoading({ commit }, bool) {
-		commit(types.TOGGLE_LOADING, bool)
-	},
-	toggleSidebar({ commit }, bool) {
-		commit(types.TOGGLE_SIDEBAR, bool)
-	},
-	openSidebar({ commit }) {
-		commit(types.OPEN_SIDEBAR, true)
-	},
-	closeSidebar({ commit }) {
-		commit(types.CLOSE_SIDEBAR, false)
-	},
-	updateBreadcrumb({ commit }, objItems) {
-		commit(types.UPDATE_BREADCRUMB, objItems)
+	getPosts({ commit, dispatch, state }) {
+		return new Promise((resolve, reject) => {
+			let nPosts = state.Posts.length
+			if (nPosts) {
+				resolve()
+			} else {
+				const objRequest = {
+					hooks: {
+						before: () => {
+							commit('TOGGLE_LOADING', true)
+						}
+					}
+				}
+				// @TODO: Fix this.$api...
+				/*const { success, $responseGetPosts } = this.api
+					.wordpress('getPosts')
+					.doFetchRequest(objRequest)
+					.on('done', res => {
+						console.log('Done', res)
+						commit('STORE_POSTS', { res })
+						commit('TOGGLE_LOADING', false)
+						resolve()
+					})
+					.on('fail', res => {
+						console.log('Fail', res)
+						reject(res)
+					})
+					.on('error', err => {
+						console.log('Error', err)
+					})*/
+			}
+		})
 	}
 }

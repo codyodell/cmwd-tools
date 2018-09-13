@@ -65,6 +65,14 @@ export default {
 		Loading,
 		Navigation
 	},
+	watch: {
+		is_open: {
+			handler: function(val, oldVal) {
+				console.log(val, oldVal)
+			},
+			deep: true
+		}
+	},
 	computed: {
 		show_loading() {
 			return this.is_loading || this.is_sidebar_loading

@@ -1,0 +1,8 @@
+{
+	"name": "CMWD - Tools for Web Developers",
+	"short_name": "CMWD Tools",
+	"display": "standalone",
+	"start_url": "/",
+	"background_color": "#f2f3f5",
+	"theme_color": "#f60"
+}

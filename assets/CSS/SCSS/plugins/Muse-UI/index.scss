@@ -1,1 +1,623 @@
-@import 'theme';
+/*=== THEME ===*/
+
+#app {
+	background-color: $color-ui;
+	color: $color-text-primary;
+	.content {
+		a {
+			color: inherit;
+		}
+	}
+}
+.mu-appbar {
+	background-color: $color-accent;
+	color: $color-text-ui;
+}
+.mu-avatar {
+	background-color: $color-ui__lightest;
+	color: $color-text-ui;
+}
+.mu-badge {
+	background-color: $color-accent;
+	color: $color-text-ui;
+}
+.mu-badge-primary {
+	background-color: $color-accent;
+	color: $color-text-ui;
+}
+.mu-badge-secondary {
+	background-color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
+	color: $color-text-ui;
+}
+.mu-bottom-nav {
+	background-color: $color-ui__lighter;
+}
+.mu-bottom-nav-shift {
+	background-color: $color-accent;
+}
+.mu-buttom-item {
+	color: rgba($color-text-primary, 0.6666);
+}
+.mu-bottom-nav-shift .mu-buttom-item {
+	color: rgba($color-text-ui, 0.6666);
+}
+.mu-bottom-item-active .mu-bottom-item-text {
+	color: $color-text-accent;
+}
+.mu-bottom-nav-shift .mu-bottom-item-active .mu-bottom-item-text {
+	color: $color-text-ui;
+}
+.mu-bottom-item-active .mu-bottom-item-icon {
+	color: $color-text-accent;
+}
+.mu-bottom-nav-shift .mu-bottom-item-active .mu-bottom-item-icon {
+	color: $color-text-ui;
+}
+.mu-bottom-sheet {
+	background-color: $color-ui__lighter;
+}
+.mu-card {
+	background-color: $color-ui;
+}
+.mu-card-header-title .mu-card-title {
+	color: rgba($color-text-primary, 0.833);
+}
+.mu-card-header-title .mu-card-sub-title {
+	color: rgba($color-text-primary, 0.533);
+}
+.mu-card-media-title {
+	background-color: rgba($color-ui, 0.533);
+}
+.mu-card-media-title .mu-card-title {
+	color: rgba($color-text-primary, 0.833);
+}
+.mu-card-media-title .mu-card-sub-title {
+	color: rgba($color-text-primary, 0.533);
+}
+.mu-card-title-container .mu-card-title {
+	color: rgba($color-text-primary, 0.833);
+}
+.mu-card-title-container .mu-card-sub-title {
+	color: rgba($color-text-primary, 0.533);
+}
+.mu-card-text {
+	color: $color-text-primary;
+}
+.mu-checkbox
+	input[type='checkbox']:checked
+	+ .mu-checkbox-wrapper
+	.mu-checkbox-icon-uncheck {
+	color: $color-text-accent;
+}
+.mu-checkbox
+	input[type='checkbox']:checked
+	+ .mu-checkbox-wrapper
+	.mu-checkbox-ripple-wrapper {
+	color: $color-text-accent;
+}
+.mu-checkbox-label {
+	color: $color-text-primary;
+}
+.mu-checkbox.disabled .mu-checkbox-label {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-checkbox-icon-uncheck {
+	color: $color-text-primary;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-uncheck {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-checkbox-icon-checked {
+	color: $color-text-accent;
+}
+.mu-checkbox.disabled .mu-checkbox-icon-checked {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-chip {
+	background-color: #4f4f4f;
+	color: rgba($color-text-primary, 0.833);
+	&.hover {
+		background-color: #cecece;
+		cursor: pointer;
+		.mu-chip-delete-icon {
+			color: rgba($color-text-primary, 0.3333);
+		}
+	}
+}
+.mu-chip-delete-icon {
+	color: rgba($color-text-primary, 0.26);
+}
+.mu-circular-progress-determinate-path {
+	stroke: $color-accent;
+}
+.mu-calendar {
+	color: $color-text-primary;
+}
+.mu-calendar-year {
+	background-color: $color-ui__lighter;
+}
+.mu-date-display {
+	background-color: rgba($color-primary, 0.133);
+	color: $color-text-primary;
+}
+.mu-day-button-bg {
+	background-color: $color-accent;
+}
+.mu-day-button-text {
+	position: relative;
+	font-weight: $font-weight-normal;
+	color: $color-text-primary;
+}
+.mu-day-button.now .mu-day-button-text {
+	color: $color-text-accent;
+}
+.mu-day-button.hover .mu-day-button-text,
+.mu-day-button.selected .mu-day-button-text {
+	color: $color-text-ui;
+}
+.mu-year-button-text {
+	color: $color-text-primary;
+}
+.mu-year-button.selected .mu-year-button-text {
+	color: $color-text-accent;
+}
+.mu-year-button.hover .mu-year-button-text {
+	color: $color-text-accent;
+}
+.mu-calendar {
+	color: $color-text-primary;
+}
+.mu-calendar-year {
+	background-color: $color-ui__lighter;
+}
+.mu-date-display {
+	background-color: rgba($color-primary, 0.133);
+	color: $color-text-primary;
+}
+.mu-day-button-bg {
+	background-color: $color-accent;
+}
+.mu-day-button-text {
+	font-weight: $font-weight-normal;
+	position: relative;
+	color: $color-text-primary;
+}
+.mu-day-button.now .mu-day-button-text {
+	color: $color-text-accent;
+}
+.mu-day-button.hover .mu-day-button-text,
+.mu-day-button.selected .mu-day-button-text {
+	color: $color-text-ui;
+}
+.mu-year-button-text {
+	color: $color-text-primary;
+}
+.mu-year-button.selected .mu-year-button-text {
+	color: $color-text-accent;
+}
+.mu-year-button.hover .mu-year-button-text {
+	color: $color-text-accent;
+}
+.mu-dialog {
+	background-color: $color-ui__lighter;
+}
+.mu-dialog-footer.scrollable,
+.mu-dialog-header.scrollable {
+	border-bottom-color: rgba($color-primary, 0.3333);
+}
+.mu-dialog-title {
+	color: $color-text-primary;
+}
+.mu-dialog-body {
+	color: rgba($color-text-primary, 0.6666);
+}
+.mu-dropDown-menu-text {
+	color: $color-text-primary;
+}
+.mu-dropDown-menu-icon {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-dropDown-menu-line {
+	background-color: rgba($color-primary, 0.3333);
+}
+.mu-flat-button {
+	color: $color-text-primary;
+	background-color: transparent;
+}
+.mu-flat-button .mu-circle-ripple {
+	color: $color-text-primary;
+}
+.mu-flat-button-primary {
+	color: $color-text-accent;
+}
+.mu-flat-button-secondary {
+	color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
+}
+.mu-float-button {
+	background-color: $color-accent;
+	color: $color-text-ui;
+}
+.mu-float-button.disabled {
+	color: rgba($color-text-primary, 0.3333);
+	cursor: default;
+	background-color: #4f4f4f;
+}
+.mu-float-button.hover .mu-float-button-wrapper,
+.mu-float-button:active .mu-float-button-wrapper {
+	background-color: rgba($color-ui, 0.3333);
+}
+.mu-float-button-secondary {
+	background-color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
+	color: $color-text-ui;
+}
+.mu-grid-tile-titlebar {
+	background-color: rgba($color-ui, 0.3333);
+}
+.mu-grid-tile-title-container {
+	color: $color-text-primary;
+}
+.mu-grid-tile-action .mu-icon {
+	color: $color-text-primary;
+}
+.mu-circle-spinner {
+	border-color: $color-text-accent;
+}
+.mu-circle-secondary {
+	border-color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
+}
+.mu-linear-progress {
+	background-color: $color-ui__lightest;
+}
+.mu-linear-progress-indeterminate {
+	background-color: $color-accent;
+}
+.mu-linear-progress-determinate {
+	background-color: $color-accent;
+}
+.mu-item-wrapper.hover {
+	background-color: rgba($color-primary, 0.133);
+}
+.mu-item {
+	color: $color-text-primary;
+}
+.mu-item.selected {
+	color: $color-text-accent;
+}
+.mu-item-link-icon {
+	color: $color-ui__lightest;
+}
+.mu-item-left {
+	color: $color-ui__lightest;
+}
+.mu-item-right {
+	color: $color-ui__lightest;
+}
+.mu-item-after {
+	color: rgba($color-text-primary, 0.6666);
+}
+.mu-item-text {
+	color: rgba($color-text-primary, 0.6666);
+}
+.mu-menu-item-wrapper {
+	color: $color-text-primary;
+}
+.mu-menu-item-wrapper.active {
+	color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
+}
+.mu-menu-item-wrapper.hover {
+	background-color: rgba($color-ui, 0.133);
+}
+.mu-menu-item-wrapper.disabled {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-menu-item-left-icon {
+	color: $color-ui__lightest;
+}
+.mu-menu-item-right-icon {
+	color: $color-ui__lightest;
+}
+.mu-pagination-item {
+	color: $color-text-primary;
+}
+.mu-pagination-item.hover {
+	background-color: rgba($color-ui, 0.133);
+}
+.mu-pagination-item.active {
+	color: $color-text-primary;
+	background-color: $color-accent;
+}
+.mu-pagination-item.disabled {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-paper {
+	background-color: $color-ui__lighter;
+	color: $color-text-primary;
+}
+.mu-picker {
+	background-color: $color-ui__lighter;
+}
+.mu-picker-center-highlight::before,
+.mu-picker-center-highlight::after {
+	background-color: rgba($color-primary, 0.3333);
+}
+.mu-picker-slot.mu-picker-slot-divider {
+	color: $color-text-primary;
+}
+.mu-picker-item {
+	color: rgba($color-text-primary, 0.6666);
+}
+.mu-picker-item.selected {
+	color: $color-text-primary;
+}
+.mu-popover {
+	background-color: $color-ui__lighter;
+}
+.mu-popup {
+	background-color: $color-ui__lighter;
+}
+.mu-radio
+	input[type='radio']:checked
+	+ .mu-radio-wrapper
+	.mu-radio-icon-uncheck {
+	color: $color-text-accent;
+}
+.mu-radio
+	input[type='radio']:checked
+	+ .mu-radio-wrapper
+	.mu-radio-ripple-wrapper {
+	color: $color-text-accent;
+}
+.mu-radio-label {
+	color: $color-text-primary;
+}
+.mu-radio.disabled .mu-radio-label {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-radio-icon-uncheck {
+	color: $color-text-primary;
+}
+.mu-radio.disabled .mu-radio-icon-uncheck {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-radio-icon-checked {
+	color: $color-text-accent;
+}
+.mu-radio.disabled .mu-radio-icon-checked {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-raised-button-primary {
+	background-color: $color-accent;
+}
+.mu-raised-button-secondary {
+	background-color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
+}
+.mu-raised-button {
+	background-color: $color-ui;
+	color: $color-text-primary;
+	&.hover {
+		.mu-raised-button-wrapper {
+			background-color: rgba($color-primary, 0.133);
+		}
+	}
+	&.disabled {
+		color: rgba($color-text-primary, 0.3333);
+		background-color: $color-ui;
+	}
+	&.mu-raised-button-inverse {
+		//color: $color-text-ui;
+		//font-weight: $font-weight-light;
+	}
+}
+.mu-refresh-control {
+	color: $color-text-accent;
+}
+.mu-slider-track {
+	background-color: $color-ui__lightest;
+}
+.mu-slider-fill {
+	background-color: $color-accent;
+}
+.mu-slider-fill.disabled {
+	background-color: $color-ui__lightest;
+}
+.mu-slider-thumb {
+	background-color: $color-accent;
+	color: $color-text-accent;
+}
+.mu-slider.zero .mu-slider-thumb,
+.mu-slider.disabled .mu-slider-thumb {
+	border-color: $color-ui__lightest;
+	color: $color-ui__lightest;
+	background-color: $color-ui;
+}
+.mu-snackbar {
+	color: $color-text-ui;
+	background-color: $color-primary;
+}
+.mu-step-button {
+	background-color: transparent;
+}
+.mu-step-button.hover {
+	background-color: rgba($color-primary, 0.06666);
+}
+.mu-step-connector-line {
+	border-color: $color-border;
+}
+.mu-stepper-vertical .mu-step-content {
+	border-left: $border-width $border-style $color-border;
+}
+.mu-step-label {
+	color: $color-text-primary;
+}
+.mu-step-label.disabled {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-step-label-icon {
+	color: lighten($color-text-ui,  ($contrast * 5));
+}
+.mu-step-label.disabled .mu-step-label-icon {
+	color: lighten($color-text-ui,  ($contrast * 5));
+}
+.mu-step-label.completed .mu-step-label-icon,
+.mu-step-label.active .mu-step-label-icon {
+	color: $color-text-accent;
+}
+.mu-step-label-circle {
+	background-color: lighten($color-text-ui,  ($contrast * 5));
+	color: $color-text-ui;
+}
+.mu-step-label.disabled .mu-step-label-circle {
+	background-color: lighten($color-text-ui,  ($contrast * 5));
+}
+.mu-step-label.completed .mu-step-label-circle,
+.mu-step-label.active .mu-step-label-circle {
+	background-color: $color-accent;
+}
+.mu-sub-header {
+	color: rgba($color-text-primary, 0.6666);
+}
+.mu-switch
+	input[type='checkbox']:checked
+	+ .mu-switch-wrapper
+	.mu-switch-track {
+	background-color: rgba($color-accent, 0.833);
+}
+.mu-switch
+	input[type='checkbox']:checked
+	+ .mu-switch-wrapper
+	.mu-switch-thumb {
+	background-color: rgba($color-primary-active, 1);
+	color: $color-text-accent;
+}
+.mu-switch.disabled
+	input[type='checkbox']:checked
+	+ .mu-switch-wrapper
+	.mu-switch-track {
+	background-color: $color-ui__lightest;
+}
+.mu-switch.disabled
+	input[type='checkbox']:checked
+	+ .mu-switch-wrapper
+	.mu-switch-thumb {
+	background-color: #e0e0e0;
+}
+.mu-switch-label {
+	color: $color-text-primary;
+}
+.mu-switch.disabled .mu-switch-label {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-switch-track {
+	background-color: $color-ui__lightest;
+}
+.mu-switch.disabled .mu-switch-track {
+	background-color: $color-ui__lightest;
+}
+.mu-switch-thumb {
+	color: $color-text-primary;
+	background-color: rgba($color-secondary, 0.833);
+}
+.mu-switch.disabled .mu-switch-thumb {
+	background-color: #e0e0e0;
+}
+.mu-table {
+	background-color: $color-ui;
+}
+.mu-thead {
+	border-bottom-color: rgba($color-primary, 0.3333);
+}
+.mu-th {
+	color: rgba($color-text-primary, 0.6666);
+}
+.mu-tr {
+	border-bottom-color: rgba($color-primary, 0.3333);
+	color: $color-text-primary;
+	&.selected {
+		background-color: rgba($color-primary, 0.05);
+	}
+	&.hover {
+		background-color: rgba($color-primary, 0.133);
+	}
+	&.stripe {
+		background-color: rgba(237, 245, 253, 0.3333);
+	}
+}
+.mu-tfoot .mu-tr {
+	border-top-color: rgba($color-text-primary, 0.3333);
+}
+.mu-tabs {
+	background-color: $color-accent;
+}
+.mu-tab-link-highlight {
+	background-color: lighten(rgba($color-accent, 0.933),  ($contrast * 3));
+}
+.mu-tab-link {
+	color: rgba($color-text-ui, 0.6666);
+}
+.mu-tab-active {
+	color: $color-text-ui;
+}
+.mu-text-field {
+	color: rgba($color-text-primary, 0.6666);
+}
+.mu-text-field.focus-state {
+	color: $color-text-accent;
+}
+.mu-text-field.focus-state.error {
+	color: $color-text-accent;
+}
+.mu-text-field.disabled {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-text-field-input {
+	color: $color-text-primary;
+}
+.mu-text-field.error .mu-text-field-help {
+	color: $color-text-accent;
+}
+.mu-text-field-line {
+	background-color: rgba($color-primary, 0.3333);
+}
+.mu-text-field-line.disabled {
+	border-color: rgba($color-primary, 0.3333);
+}
+.mu-text-field-focus-line {
+	background-color: $color-accent;
+}
+.mu-text-field-focus-line.error {
+	background-color: $color-accent;
+}
+.mu-text-field-hint {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-text-field.has-label .mu-text-field-label.float {
+	color: rgba($color-text-primary, 0.3333);
+}
+.mu-clock-circle {
+	background-color: rgba($color-primary, 0.133);
+}
+.mu-time-display {
+	background-color: rgba($color-primary, 0.133);
+	color: $color-text-primary;
+}
+.mu-clock-number.selected {
+	background-color: $color-accent;
+	color: $color-text-ui;
+}
+.mu-clock-pointer {
+	background-color: $color-accent;
+}
+.mu-clock-pointer-mark {
+	background-color: $color-ui;
+	border-color: $color-text-accent;
+}
+.mu-toast {
+	background-color: $color-primary;
+	color: $color-text-ui;
+}
+.mu-tooltip {
+	color: $color-text-ui;
+}
+.mu-tooltip-ripple.when-shown {
+	background-color: $color-secondary;
+}

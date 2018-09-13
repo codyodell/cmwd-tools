@@ -1,10 +1,12 @@
 /*=== THEME ===*/
 
 #app {
-	background-color: rgba($color-dark, 0.866);
+	background-color: $color-ui;
 	color: $color-text-primary;
-  a {
-		 color: inherit;
+	.content {
+		a {
+			color: inherit;
+		}
 	}
 }
 .mu-appbar {

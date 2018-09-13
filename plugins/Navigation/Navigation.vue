@@ -1,6 +1,8 @@
 <template>
   <nav>
-    <mu-list>
+    <mu-list
+      dense
+    >
       <navigation-item
         v-for="(item, idxItem) in items"
         :item="item"
@@ -15,35 +17,41 @@
         :disabled="item.disabled"
         :subheader="item.subheader"
       >
-        <navigation-item
-          v-for="(itemChild, idxItemChild) in item.children"
-          :item="itemChild"
-          :key="[idxItem, idxItemChild].join('-')"
-          :idx="[idxItem, idxItemChild].join('-')"
-          :name="itemChild.name"
-          :route="itemChild.route"
-          :icon="itemChild.icon"
-          :tooltip="itemChild.tooltip"
-          :children="itemChild.children"
-          :show_switch="itemChild.show_switch"
-          :disabled="itemChild.disabled"
-          :subheader="itemChild.subheader"
-        >
+        <mu-list slot="nested">
           <navigation-item
-            v-for="(itemGrandChild, idxItemGrandChild) in itemChild.children"
-            :item="itemGrandChild"
-            :key="idxItemGrandChild"
-            :idx="[idxItem, idxItemChild, idxItemGrandChild].join('-')"
-            :name="itemGrandChild.name"
-            :route="itemGrandChild.route"
-            :icon="itemGrandChild.icon"
-            :tooltip="itemGrandChild.tooltip"
-            :children="itemGrandChild.children"
-            :show_switch="itemGrandChild.show_switch"
-            :disabled="itemGrandChild.disabled"
-            :subheader="itemGrandChild.subheader"
-          ></navigation-item>
-        </navigation-item>
+            v-for="(itemChild, idxItemChild) in item.children"
+            :item="itemChild"
+            :key="[idxItem, idxItemChild].join('-')"
+            :idx="[idxItem, idxItemChild].join('-')"
+            :name="itemChild.name"
+            :route="itemChild.route"
+            :icon="itemChild.icon"
+            :tooltip="itemChild.tooltip"
+            :children="itemChild.children"
+            :show_switch="itemChild.show_switch"
+            :disabled="itemChild.disabled"
+            :subheader="itemChild.subheader"
+          >
+            <mu-list slot="nested">
+              <navigation-item
+                v-for="(itemGrandChild, idxItemGrandChild) in itemChild.children"
+                :item="itemGrandChild"
+                :key="idxItemGrandChild"
+                :idx="[idxItem, idxItemChild, idxItemGrandChild].join('-')"
+                :name="itemGrandChild.name"
+                :route="itemGrandChild.route"
+                :icon="itemGrandChild.icon"
+                :tooltip="itemGrandChild.tooltip"
+                :children="itemGrandChild.children"
+                :show_switch="itemGrandChild.show_switch"
+                :disabled="itemGrandChild.disabled"
+                :subheader="itemGrandChild.subheader"
+              >
+                <slot></slot>
+              </navigation-item>
+            </mu-list>
+          </navigation-item>
+        </mu-list>
       </navigation-item>
     </mu-list>
     <mu-raised-button 

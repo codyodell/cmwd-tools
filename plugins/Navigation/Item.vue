@@ -1,27 +1,24 @@
 <template>
-  <!--
-  <mu-sub-header
-    v-if="subheader && !is_empty(name)"
-    v-html="name"
-  ></mu-sub-header>
-  -->
   <mu-list-item
-    inset
-    slot="nested"
     :title="name"
-    :to="route"
     :key="idx"
-    :tooltip="tooltip"
+    v-model="open"
+    :value="route.path"
     :disabled="is_disabled"
-    :toggleNested="has_children"
-    :disableRipple="!show_toggle"
-    :class="{'has_children': has_children, 'show_toggle': show_toggle}"
-    @click="event_click__item"
+    :toggleNested="show_toggle"
+    :disableRipple="show_toggle"
+    :class="{'is_open': open, 'show_children': show_children, 'show_toggle': show_toggle}"
+    @click.prevent="handleClick"
   >
-    <mu-icon
+    <mu-icon-button
       slot="left"
-      :value="icon"
-    />
+      v-if="show_icon"
+      :tooltip="[n_children + ' Links', tooltip].join(' | ')"
+    >
+      <mu-icon
+        :value="icon"
+      />
+    </mu-icon-button>
     <mu-switch 
       v-if="show_switch" 
       slot="right" 
@@ -53,7 +50,6 @@ export default {
 		},
 		icon: {
 			type: String,
-			required: false,
 			default: () => {
 				return 'home'
 			}
@@ -62,9 +58,7 @@ export default {
 			type: Object,
 			required: true,
 			default: () => {
-				return {
-					path: '/'
-				}
+				return { path: '/' }
 			}
 		},
 		disabled: {
@@ -79,6 +73,12 @@ export default {
 				return false
 			}
 		},
+		open: {
+			type: Boolean,
+			default: () => {
+				return true
+			}
+		},
 		show_switch: {
 			type: Boolean,
 			default: () => {
@@ -86,13 +86,13 @@ export default {
 			}
 		},
 		tooltip: {
-			type: [Boolean, String],
+			type: String,
 			default: () => {
-				return false
+				return ''
 			}
 		},
 		item: {
-			type: [Boolean, Object],
+			type: Object,
 			default: () => {
 				return {
 					route: { path: '/' },
@@ -103,7 +103,7 @@ export default {
 			}
 		},
 		children: {
-			type: [Boolean, Array],
+			type: Array,
 			default: () => {
 				return [
 					{
@@ -116,16 +116,23 @@ export default {
 		}
 	},
 	computed: {
-		has_children() {
+		n_children() {
+			let nItemChildren = 0
+			if (this.show_children) {
+				nItemChildren = this.children.length
+			}
+			return nItemChildren
+		},
+		show_children() {
 			let is_valid = true
-			if (!this.in_array('children', this) || this.is_empty(this.children)) {
+			if (this.is_empty(this.children)) {
 				is_valid = false
 			}
 			return is_valid
 		},
 		// Show/Hide Elements
 		show_toggle() {
-			return this.is_link && this.has_children
+			return this.show_item && this.show_children
 		},
 		show_icon() {
 			return !this.is_empty(this.icon)
@@ -153,7 +160,7 @@ export default {
 	},
 	methods: {
 		is_empty(test) {
-			return test && test.length
+			return !test || !test.length
 		},
 		is_bool(test) {
 			let is_bool = typeof test === 'boolean'
@@ -163,18 +170,39 @@ export default {
 			let is_string = typeof test === 'string'
 			return is_string && !this.is_empty(test)
 		},
+		is_array(test) {
+			let is_array = typeof test === 'array'
+			return is_array && !this.is_empty(test)
+		},
 		in_array(Needle, Haystack) {
 			return Needle in Haystack
 		},
-		event_click__item() {
-			console.log('event_click__item', this.is_open)
+		handleClick(event) {
+			console.log(event)
+			let isExpandable = this.show_children && !this.open
+			if (isExpandable) {
+				this.toggle()
+			} else {
+				this.go(event.target)
+			}
+			this.$emit('click', event)
+		},
+		toggle(bool) {
+			let is_bool = typeof bool === 'boolean'
+			this.open = is_bool ? bool : !this.open
 			if (this.is_docked) {
-				this.toggleSidebar(false)
+				this.$store.commit('toggleSidebar', this.open)
+			}
+			this.$emit('toggle', this.open)
+		},
+		go(objRoute) {
+			if (!this.is_empty(objRoute)) {
+				this.$router.push(objRoute)
 			}
 		}
 	},
-	mounted() {
-		console.log('Navigation > Item', this, this.children)
+	created() {
+		console.log('Plugins > Navigation > Item', this, this.children)
 	}
 }
 </script>

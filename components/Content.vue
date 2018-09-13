@@ -5,9 +5,9 @@
     <transition 
       name="fade"
     >
-      <slot>
-        <router-view />
-      </slot>
+      <router-view>
+        <slot></slot>
+      </router-view>
     </transition>
   </div>
 </template>

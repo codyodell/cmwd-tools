@@ -1,4 +1,4 @@
-const state = {
+export default {
 	User: {},
 	is_loading: false,
 	UI: {
@@ -179,7 +179,14 @@ const state = {
 				]
 			}
 		}
+	},
+	Posts: [],
+	Pages: [],
+	Tags: [],
+	Categories: [],
+	Users: [],
+	CurrentUser: {
+		id: 0,
+		token: null
 	}
 }
-
-export default state

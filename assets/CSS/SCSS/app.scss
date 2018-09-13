@@ -26,9 +26,12 @@ $width-sidebar: 16rem;
 			padding: 0.66em 1.166em 3.33em 1.166em;
 		}
 	}
-	.logo a {
-		text-align: center;
+	.logo {
+		display: inline-block;
+		vertical-align: middle;
 		line-height: 0;
+		width: 100%;
+		text-align: center;
 	}
 	.router-link-exact-active {
 		background-color: $color-accent;
